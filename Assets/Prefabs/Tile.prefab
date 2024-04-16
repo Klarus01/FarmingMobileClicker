@@ -187,6 +187,7 @@ MonoBehaviour:
   offsetColor: {r: 0.48050883, g: 0.8018868, b: 0.3215112, a: 1}
   renderer: {fileID: 3086329634105749699}
   highlight: {fileID: 6321955451306221838}
+  seedsPanel: {fileID: 0}
 --- !u!61 &2770192472291171037
 BoxCollider2D:
   m_ObjectHideFlags: 0
