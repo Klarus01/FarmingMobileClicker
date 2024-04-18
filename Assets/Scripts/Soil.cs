@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Soil : MonoBehaviour
@@ -13,6 +11,11 @@ public class Soil : MonoBehaviour
 
     private void Update()
     {
+        if (seed == null)
+        {
+            return;
+        }
+
         GrowingUpPlant();
     }
 
@@ -39,14 +42,14 @@ public class Soil : MonoBehaviour
 
     private void GrowingUpPlant()
     {
-        if(isPlantGrowUp)
+        if (isPlantGrowUp)
         {
             return;
         }
 
         growTimeLeft -= Time.deltaTime;
 
-        if(growTimeLeft <= 0 )
+        if (growTimeLeft <= 0)
         {
             GrowUpPlant();
             return;
@@ -67,13 +70,13 @@ public class Soil : MonoBehaviour
 
         float timeToChangeSprite = seed.TimeToCreate / partOfSprite;
 
-        int numberOfSprite =(int) (seed.TimeToCreate / timeToChangeSprite);
+        int numberOfSprite = (int)(seed.TimeToCreate / timeToChangeSprite);
 
-        if(numberOfSprite == 0)
+        if (numberOfSprite == 0)
         {
             return;
         }
 
-        plantSprite.sprite = seed.PlantStadiumSprites[numberOfSprite-1];
+        plantSprite.sprite = seed.PlantStadiumSprites[numberOfSprite - 1];
     }
 }

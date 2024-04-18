@@ -10,7 +10,7 @@ public class FieldClickHandler : MonoBehaviour
     {
         transform.position = Input.mousePosition;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             CheckFieldsUnderMouse();
         }
