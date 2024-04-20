@@ -5,8 +5,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private Transform cam;
 
-    private int width = 5;
-    private int height = 5;
+    private int width = 10;
+    private int height = 10;
 
     private void Start()
     {
