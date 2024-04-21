@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FieldClickHandler : MonoBehaviour
 {
-    public GameObject seedsPanel;
+    [SerializeField] private GameObject seedsPanel;
     private int seedsPanelWidth = 1;
     private int seedsUnlocked = 2;
 

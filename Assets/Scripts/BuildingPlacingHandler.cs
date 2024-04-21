@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingPlacingHandler : MonoBehaviour
 {
     private Color baseColor;
-    private SpriteRenderer renderer;
-    private Vector3 pos;
+    private new SpriteRenderer renderer;
+    private List<Collider2D> colliders = new();
+    [SerializeField] private int buildingSize;
 
     private void Start()
     {
@@ -16,34 +18,72 @@ public class BuildingPlacingHandler : MonoBehaviour
 
     private void Update()
     {
-        pos = Input.mousePosition;
-        pos.z = 100;
-        transform.position = Camera.main.ScreenToWorldPoint(pos);
+        MoveBuilding();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && colliders.Count.Equals(buildingSize))
         {
-            CheckIfPlaceIsOccupied();
+            PlaceBuilding(CenterPosition());
         }
     }
 
-    private void CheckIfPlaceIsOccupied()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-        if (hit.collider != null && hit.collider.TryGetComponent<Tile>(out var tile))
+        if (collision.TryGetComponent<Tile>(out var tile))
         {
-            if (!tile.isOccupied)
+            if (tile.isOccupied)
             {
-                tile.isOccupied = true;
-                PlaceBuilding(tile);
-                return;
+                tile.ActivateRedHighlight();
+            }
+            else
+            {
+                tile.ActivateHighlight();
+                colliders.Add(collision);
             }
         }
     }
 
-    private void PlaceBuilding(Tile tile)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        transform.position = tile.transform.position;
+        if (collision.TryGetComponent<Tile>(out var tile))
+        {
+            if (!tile.isOccupied)
+            {
+                tile.DeactivateHighlight();
+                colliders.Remove(collision);
+            }
+            else
+            {
+                tile.DeactivateRedHighlight();
+            }
+        }
+    }
+
+    private void MoveBuilding()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = 100;
+        transform.position = Camera.main.ScreenToWorldPoint(mousePosition);
+    }
+
+    private Vector3 CenterPosition()
+    {
+        Vector3 center = Vector3.zero;
+
+        foreach (var collider in colliders)
+        {
+            center += collider.bounds.center;
+            collider.GetComponent<Tile>().isOccupied = true;
+            collider.GetComponent<Tile>().DeactivateHighlight();
+        }
+
+        center /= colliders.Count;
+
+        return center;
+    }
+
+    private void PlaceBuilding(Vector3 newPos)
+    {
+        transform.position = newPos;
         baseColor.a = 1f;
         renderer.color = baseColor;
         gameObject.GetComponent<BuildingPlacingHandler>().enabled = false;
