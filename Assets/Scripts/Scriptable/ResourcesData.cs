@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resources : Items
+public class ResourcesData : ItemsData
 {
     [SerializeField] private float timeToCreate;
     [SerializeField] private float expFromCollect;

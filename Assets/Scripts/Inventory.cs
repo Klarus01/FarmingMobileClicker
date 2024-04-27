@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private Dictionary<Items, int> countByItem = new Dictionary<Items, int>();
+    private Dictionary<ItemsData, int> countByItem = new Dictionary<ItemsData, int>();
 
-    public void AddItemToInventory(Items items, int count = 1)
+    public void AddItemToInventory(ItemsData items, int count = 1)
     {
         if(countByItem.ContainsKey(items))
         {

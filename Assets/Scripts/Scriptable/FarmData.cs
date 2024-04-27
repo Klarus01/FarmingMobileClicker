@@ -4,11 +4,11 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Items/Building/Farm")]
-public class Farm : Items
+public class FarmData : ItemsData
 {
     [SerializeField] private int animalCapacity;
-    [SerializeField] private Animals animalType;
+    [SerializeField] private AnimalsData animalType;
 
     public int AnimalCapacity { get { return animalCapacity; } }
-    public Animals AnimalType { get { return animalType; } }
+    public AnimalsData AnimalType { get { return animalType; } }
 }

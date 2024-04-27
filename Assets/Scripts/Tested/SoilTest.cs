@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoilTest : MonoBehaviour
 {
-    public Seeds seeds;
+    public SeedsData seeds;
 
     private void Start()
     {

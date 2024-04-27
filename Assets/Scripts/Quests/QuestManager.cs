@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    [SerializeField] private List<QuestSO> allExistingQuests = new();
-    private List<QuestSO> acceptedQuests = new();
-    private List<QuestSO> availableQuests = new();
+    [SerializeField] private List<QuestData> allExistingQuests = new();
+    private List<QuestData> acceptedQuests = new();
+    private List<QuestData> availableQuests = new();
     private float questRefreshTime = 300f;
     private float timeSinceLastQuest;
 
@@ -27,17 +27,17 @@ public class QuestManager : MonoBehaviour
     void GenerateNewQuest()
     {
         int randomIndex = Random.Range(0, allExistingQuests.Count);
-        QuestSO newQuest = allExistingQuests[randomIndex];
+        QuestData newQuest = allExistingQuests[randomIndex];
         availableQuests.Add(newQuest);
     }
 
-    public void AcceptQuest(QuestSO quest)
+    public void AcceptQuest(QuestData quest)
     {
         //TODO
         acceptedQuests.Add(quest);
     }
 
-    public void RejectQuest(QuestSO quest)
+    public void RejectQuest(QuestData quest)
     {
         //TODO
         availableQuests.Remove(quest);

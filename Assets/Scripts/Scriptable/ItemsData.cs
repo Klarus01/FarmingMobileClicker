@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Items : ScriptableObject
+public class ItemsData : ScriptableObject
 {
     [SerializeField] private int itemValue;
 

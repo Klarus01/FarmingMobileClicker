@@ -7,7 +7,7 @@ public class Soil : MonoBehaviour
 
     private bool isPlantGrowUp;
     private float growTimeLeft;
-    private Seeds seed;
+    private SeedsData seed;
 
     private void Update()
     {
@@ -19,7 +19,7 @@ public class Soil : MonoBehaviour
         GrowingUpPlant();
     }
 
-    public void PlantSeed(Seeds seed)
+    public void PlantSeed(SeedsData seed)
     {
         if (seed == null)
         {

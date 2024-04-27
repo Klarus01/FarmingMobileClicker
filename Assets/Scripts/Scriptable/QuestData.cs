@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Quests/NewQuest")]
-public class QuestSO : ScriptableObject
+public class QuestData : ScriptableObject
 {
     [Serializable]
     public struct Request
     {
-        public Plants plants;
+        public PlantsData plants;
         public int plantCount;
     }
 
