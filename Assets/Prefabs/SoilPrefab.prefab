@@ -114,7 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c36248dba6ee71418b73842bb723eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantSprite: {fileID: 3908527266900353060}
+  inventory: {fileID: 0}
+  plantSprite: {fileID: 8789599420374146719}
 --- !u!61 &71661415069635916
 BoxCollider2D:
   m_ObjectHideFlags: 0

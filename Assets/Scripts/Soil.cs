@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class Soil : MonoBehaviour
 {
     [SerializeField] private Inventory inventory;
     [SerializeField] private SpriteRenderer plantSprite;
-
+    
     private bool isPlantGrowUp;
     private float growTimeLeft;
     private SeedsData seed;

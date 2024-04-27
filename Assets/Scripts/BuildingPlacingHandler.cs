@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class BuildingPlacingHandler : MonoBehaviour
 {
+    [SerializeField] private int buildingSize;
     private Color baseColor;
     private new SpriteRenderer renderer;
     private List<Collider2D> colliders = new();
-    [SerializeField] private int buildingSize;
 
     private void Start()
     {
@@ -86,6 +86,6 @@ public class BuildingPlacingHandler : MonoBehaviour
         transform.position = newPos;
         baseColor.a = 1f;
         renderer.color = baseColor;
-        gameObject.GetComponent<BuildingPlacingHandler>().enabled = false;
+        Destroy(this);
     }
 }

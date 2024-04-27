@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb9317c4c5edb94f9e4b36945689442, type: 3}
-  m_Name: Carrots_0
+  m_Script: {fileID: 11500000, guid: c8e04107d41bdd5428c430bbf14baa89, type: 3}
+  m_Name: Turnip
   m_EditorClassIdentifier: 
-  questName: Carrots_0
-  questDescription: I need from you 1 carrots, plz help bro!
-  rewardGold: 5
-  rewardExp: 1
+  itemValue: 5
+  itemSprite: {fileID: -1801780737, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  timeToCreate: 60
+  expFromCollect: 1
