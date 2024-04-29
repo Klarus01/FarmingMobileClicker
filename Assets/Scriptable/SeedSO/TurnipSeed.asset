@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemValue: 1
   itemSprite: {fileID: -1352530029, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
-  timeToCreate: 60
+  timeToCreate: 5
   expFromCollect: 5
   plant: {fileID: 11400000, guid: e2ccd0eea37734d42accddcf2bc7b03d, type: 2}
   plantStadiumSprite:

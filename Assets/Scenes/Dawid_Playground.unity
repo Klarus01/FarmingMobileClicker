@@ -749,10 +749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bd04217eabd62419c7bfc5b32c5001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickHandler: {fileID: 2024445268}
   seed: {fileID: 11400000, guid: 4c9395c00ca798841a39fa89ad03cdae, type: 2}
   image: {fileID: 267595547}
   button: {fileID: 267595546}
-  soil: {fileID: 0}
 --- !u!1 &310277668
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,10 +886,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bd04217eabd62419c7bfc5b32c5001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickHandler: {fileID: 2024445268}
   seed: {fileID: 11400000, guid: 4c9395c00ca798841a39fa89ad03cdae, type: 2}
   image: {fileID: 310277671}
   button: {fileID: 310277670}
-  soil: {fileID: 0}
 --- !u!1 &339815335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,10 +2154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bd04217eabd62419c7bfc5b32c5001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickHandler: {fileID: 2024445268}
   seed: {fileID: 11400000, guid: 4c9395c00ca798841a39fa89ad03cdae, type: 2}
   image: {fileID: 536472627}
   button: {fileID: 536472626}
-  soil: {fileID: 0}
 --- !u!1 &576236097
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,12 +6301,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defa23712a7b1304480dfe8c02d16501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedsPanel: {fileID: 1966945443}
-  allSeedsInPanel:
+  building: {fileID: 693506770}
+  seeds:
   - {fileID: 267595549}
   - {fileID: 536472629}
   - {fileID: 310277673}
-  building: {fileID: 693506770}
+  seedsPanel: {fileID: 1966945443}
 --- !u!4 &2024445269
 Transform:
   m_ObjectHideFlags: 0

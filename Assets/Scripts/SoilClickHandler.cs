@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class SoilClickHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject seedsPanel;
     [SerializeField] private BuildingManager building;
+    [SerializeField] private Seed[] seeds;
+    [SerializeField] private GameObject seedsPanel;
+    
+    public GameObject SeedsPanel { get => seedsPanel; set => seedsPanel = value; }
 
     private void Update()
     {
@@ -21,11 +24,23 @@ public class SoilClickHandler : MonoBehaviour
 
     private void CheckFieldsUnderMouse()
     {
+        if (RectTransformUtility.RectangleContainsScreenPoint(seedsPanel.GetComponent<RectTransform>(),Input.mousePosition, Camera.main)) return;
+        
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null && hit.collider.TryGetComponent<Soil>(out var soil))
         {
-            SeedsPanelHandler(soil);
-            return;
+            if (soil.IsSoilEmpty())
+            {
+                SeedsPanelHandler(soil);
+                return;
+            }
+            else
+            {
+                if (soil.IsPlantGrowUp)
+                {
+                    soil.HarvestPlant();
+                }
+            }
         }
 
         seedsPanel.SetActive(false);
@@ -36,6 +51,11 @@ public class SoilClickHandler : MonoBehaviour
         if (!seedsPanel.activeSelf)
         {
             seedsPanel.SetActive(true);
+        }
+
+        foreach (var seed in seeds)
+        {
+            seed.SetSoil(soil);
         }
         
         seedsPanel.transform.position = new Vector3(soil.transform.position.x, soil.transform.position.y + 1f);

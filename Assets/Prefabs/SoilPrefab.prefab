@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSize: 1
+  maxDistance: 0.53
 --- !u!114 &3089976956393880526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
-  plantSprite: {fileID: 8789599420374146719}
+  plantSprite: {fileID: 3908527266900353060}
 --- !u!61 &71661415069635916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.53, y: 0.53}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &-3673553873111372381
 Rigidbody2D:

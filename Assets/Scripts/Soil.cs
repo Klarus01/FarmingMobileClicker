@@ -10,6 +10,11 @@ public class Soil : MonoBehaviour
     private float growTimeLeft;
     private SeedsData seed;
 
+    public bool IsPlantGrowUp => isPlantGrowUp;
+
+
+    public bool IsSoilEmpty() => seed == null;
+    
     private void Update()
     {
         if (seed == null)
@@ -34,11 +39,11 @@ public class Soil : MonoBehaviour
         plantSprite.sprite = seed.ItemSprite;
     }
 
-    private void HarvestPlant()
+    public void HarvestPlant()
     {
         seed = null;
         plantSprite.gameObject.SetActive(false);
-        inventory.AddItemToInventory(seed.Plant);
+        //inventory.AddItemToInventory(seed.Plant);
     }
 
     private void GrowingUpPlant()

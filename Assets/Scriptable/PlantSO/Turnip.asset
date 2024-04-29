@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemValue: 5
   itemSprite: {fileID: -1801780737, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
-  timeToCreate: 60
+  timeToCreate: 5
   expFromCollect: 1
