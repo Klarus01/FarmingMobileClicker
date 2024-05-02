@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2570754158253432990}
   - component: {fileID: 1702873364669363504}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RedHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1000192895611950525}
   - component: {fileID: 2205993626211416719}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3086329634105749699}
   - component: {fileID: 3518988140073082741}
   - component: {fileID: 2770192472291171037}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,6 +273,7 @@ MonoBehaviour:
   renderer: {fileID: 3086329634105749699}
   highlight: {fileID: 6321955451306221838}
   redHighlight: {fileID: 4562116144101266051}
+  halfObjectInside: 0
   isOccupied: 0
 --- !u!61 &2770192472291171037
 BoxCollider2D:

@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SoilClickHandler : MonoBehaviour
 {
@@ -24,9 +23,9 @@ public class SoilClickHandler : MonoBehaviour
 
     private void CheckFieldsUnderMouse()
     {
-        if (RectTransformUtility.RectangleContainsScreenPoint(seedsPanel.GetComponent<RectTransform>(),Input.mousePosition, Camera.main)) return;
-        
+        if (IsPointerOverUIElement()) return;
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        
         if (hit.collider != null && hit.collider.TryGetComponent<Soil>(out var soil))
         {
             if (soil.IsSoilEmpty())
@@ -58,5 +57,12 @@ public class SoilClickHandler : MonoBehaviour
         }
         
         seedsPanel.transform.position = new Vector3(soil.transform.position.x, soil.transform.position.y + 1f);
+    }
+    
+    private bool IsPointerOverUIElement()
+    {
+        if (EventSystem.current == null) return false;
+
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
