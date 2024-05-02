@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BuildingPlacingHandler : MonoBehaviour
@@ -26,36 +27,24 @@ public class BuildingPlacingHandler : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Tile>(out var tile))
+        if (!collision.TryGetComponent<Tile>(out var tile)) return;
+        if (tile.isOccupied) return;
+        if (!tile.halfObjectInside)
         {
-            if (tile.isOccupied)
-            {
-                tile.ActivateRedHighlight();
-            }
-            else
-            {
-                tile.ActivateHighlight();
-                colliders.Add(collision);
-            }
+            if (colliders.Contains(collision)) colliders.Remove(collision);
+            return;
         }
+
+        if (!colliders.Contains(collision)) colliders.Add(collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Tile>(out var tile))
-        {
-            if (!tile.isOccupied)
-            {
-                tile.DeactivateHighlight();
-                colliders.Remove(collision);
-            }
-            else
-            {
-                tile.DeactivateRedHighlight();
-            }
-        }
+        if (!collision.GetComponent<Tile>()) return;
+        
+        if (colliders.Contains(collision)) colliders.Remove(collision);
     }
 
     private void MoveBuilding()
@@ -73,6 +62,7 @@ public class BuildingPlacingHandler : MonoBehaviour
         {
             center += collider.bounds.center;
             collider.GetComponent<Tile>().isOccupied = true;
+            collider.GetComponent<Tile>().halfObjectInside = false;
             collider.GetComponent<Tile>().DeactivateHighlight();
         }
 

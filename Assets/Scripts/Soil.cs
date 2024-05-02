@@ -11,6 +11,7 @@ public class Soil : MonoBehaviour
     private SeedsData seed;
 
     public bool IsPlantGrowUp => isPlantGrowUp;
+    public SeedsData Seed => seed;
 
 
     public bool IsSoilEmpty() => seed == null;

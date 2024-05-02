@@ -34,12 +34,11 @@ public class SoilClickHandler : MonoBehaviour
                 SeedsPanelHandler(soil);
                 return;
             }
-            else
+
+            if (soil.IsPlantGrowUp)
             {
-                if (soil.IsPlantGrowUp)
-                {
-                    soil.HarvestPlant();
-                }
+                soil.HarvestPlant();
+                return;
             }
         }
 
