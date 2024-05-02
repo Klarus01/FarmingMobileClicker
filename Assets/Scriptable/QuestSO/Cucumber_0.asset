@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56346f1eeda242e4480ab3c6158f89be, type: 3}
-  m_Name: Turnip_0
+  m_Name: Cucumber_0
   m_EditorClassIdentifier: 
   requestList:
-  - plants: {fileID: 11400000, guid: e2ccd0eea37734d42accddcf2bc7b03d, type: 2}
+  - plants: {fileID: 11400000, guid: 29780809cde93794ea6973ddcd389e76, type: 2}
     plantCount: 5
-  questName: Turnip 0
-  questDescription: Gimme turnip, pls!
-  rewardGold: 30
+  questName: Cucumber 0
+  questDescription: Gimme Cucumber, pls!
+  rewardGold: 70
   rewardExp: 5

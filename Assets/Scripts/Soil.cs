@@ -77,13 +77,15 @@ public class Soil : MonoBehaviour
 
         float timeToChangeSprite = seed.TimeToCreate / partOfSprite;
 
-        int numberOfSprite = (int)(seed.TimeToCreate / timeToChangeSprite);
+        int numberOfSprite = Mathf.FloorToInt((seed.TimeToCreate - growTimeLeft) / timeToChangeSprite);
 
-        if (numberOfSprite == 0)
+        if (numberOfSprite >= partOfSprite)
         {
-            return;
+            numberOfSprite = partOfSprite - 1;
         }
 
-        plantSprite.sprite = seed.PlantStadiumSprites[numberOfSprite - 1];
+        plantSprite.sprite = seed.PlantStadiumSprites[numberOfSprite];
     }
+
+
 }

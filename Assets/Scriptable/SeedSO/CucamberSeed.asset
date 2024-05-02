@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d37830b6d8adb4aa97449e41d97265, type: 3}
+  m_Name: CucamberSeed
+  m_EditorClassIdentifier: 
+  itemValue: 3
+  itemSprite: {fileID: -119881989, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  timeToCreate: 10
+  expFromCollect: 5
+  plant: {fileID: 11400000, guid: 29780809cde93794ea6973ddcd389e76, type: 2}
+  plantStadiumSprite:
+  - {fileID: 163546230, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -767208480, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -401424918, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -1079552115, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}

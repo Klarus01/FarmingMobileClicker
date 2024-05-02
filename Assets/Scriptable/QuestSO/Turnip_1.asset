@@ -15,7 +15,7 @@ MonoBehaviour:
   requestList:
   - plants: {fileID: 11400000, guid: e2ccd0eea37734d42accddcf2bc7b03d, type: 2}
     plantCount: 10
-  questName: Turnip
+  questName: Turnip 1
   questDescription: Gimme turnip, pls!
   rewardGold: 70
   rewardExp: 12

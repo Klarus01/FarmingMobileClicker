@@ -18,5 +18,5 @@ public class QuestData : ScriptableObject
     public int rewardGold;
     public int rewardExp;
 
-    public List<Request> RequestList { get { return requestList; } }
+    public List<Request> RequestList => requestList;
 }
