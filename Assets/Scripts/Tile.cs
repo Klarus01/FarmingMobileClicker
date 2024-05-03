@@ -5,7 +5,7 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] private Color baseColor;
     [SerializeField] private Color offsetColor;
-    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private new SpriteRenderer renderer;
     [SerializeField] private GameObject highlight;
     [SerializeField] private GameObject redHighlight;
 

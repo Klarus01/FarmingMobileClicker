@@ -29,11 +29,8 @@ public class AcceptedQuest : MonoBehaviour
 
     private void DoneQuest()
     {
-        Debug.Log("Quest Done");
-    }
-
-    private void AddRewardToPlayer()
-    {
-        //TODO
+        questManager.RewardFromQuest(questData);
+        questData = null;
+        gameObject.SetActive(false);
     }
 }

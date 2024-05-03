@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    [SerializeField] private Player player;
     [SerializeField] private List<QuestData> allExistingQuests = new();
     [SerializeField] private List<AcceptedQuest> acceptedQuestObject = new();
     [SerializeField] private List<AvailableQuests> availableQuestsObject = new();
@@ -60,5 +61,11 @@ public class QuestManager : MonoBehaviour
             quest.NewQuestInit(questToAccept);
             return;
         }
+    }
+
+    public void RewardFromQuest(QuestData questDone)
+    {
+        player.AddExp(questDone.rewardExp);
+        acceptedQuests.Remove(questDone);
     }
 }

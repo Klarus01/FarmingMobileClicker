@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Seed : MonoBehaviour
 {
     [SerializeField] private SoilClickHandler clickHandler;
-    [SerializeField] private SeedsData seed;
+    [SerializeField] private SeedsData seedData;
     [SerializeField] private Image image;
     [SerializeField] private Button button;
     private Soil soil;
-
+    
     private void Start()
     {
-        image.sprite = seed.ItemSprite;
+        image.sprite = seedData.ItemSprite;
         button.onClick.AddListener(PlantSeedInSoil);
     }
 
@@ -26,7 +27,7 @@ public class Seed : MonoBehaviour
 
     private void PlantSeedInSoil()
     {
-        soil.PlantSeed(seed);
+        soil.PlantSeed(seedData);
         clickHandler.SeedsPanel.SetActive(false);
     }
 }

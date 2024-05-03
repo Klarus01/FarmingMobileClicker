@@ -5,8 +5,8 @@ using UnityEngine;
 public class ResourcesData : ItemsData
 {
     [SerializeField] private float timeToCreate;
-    [SerializeField] private float expFromCollect;
+    [SerializeField] private int expFromCollect;
 
-    public float TimeToCreate { get { return timeToCreate; } }
-    public float ExpFromCollect { get {  return expFromCollect; } }
+    public float TimeToCreate => timeToCreate;
+    public int ExpFromCollect => expFromCollect;
 }

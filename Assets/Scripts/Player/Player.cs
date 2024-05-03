@@ -36,10 +36,7 @@ public class Player : MonoBehaviour
 
     private void TryToLevelUp()
     {
-        if(exp != expToLevelUp)
-        {
-            return;
-        }
+        if (exp < expToLevelUp) return;
 
         level++;
         exp -= expToLevelUp;
