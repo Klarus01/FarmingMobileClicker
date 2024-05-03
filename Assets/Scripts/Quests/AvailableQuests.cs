@@ -21,6 +21,12 @@ public class AvailableQuests : MonoBehaviour
         rejectQuestButton.onClick.AddListener(RejectQuest);
     }
 
+    private void Update()
+    {
+        if (questManager.AcceptedQuest.Count >= 3) acceptQuestButton.interactable = false;
+        else acceptQuestButton.interactable = true;
+    }
+
     public void NewQuestInit(QuestData newQuestData)
     {
         questData = newQuestData;
@@ -32,7 +38,6 @@ public class AvailableQuests : MonoBehaviour
 
     private void AcceptQuest()
     {
-        if (questManager.AcceptedQuest.Count >= 3) return;
         questManager.QuestAccepted(questData);
         questData = null;
         gameObject.SetActive(false);
