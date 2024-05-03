@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Player : MonoBehaviour
+public class Player : SingletoneMonobehaviour<Player>
 {
     public Action OnLevelUp;
     public Action OnGrainExp;
@@ -15,11 +15,20 @@ public class Player : MonoBehaviour
     private int exp;
     private int expToLevelUp = 50;
 
+    private Inventory inventory;
+
     private readonly int EXP_TO_LEVEL_UP_MULTIPLIER = 2;
 
     public int Exp { get { return exp; } }
     public int Level { get { return level; } }
     public int ExpToLevelUp { get { return expToLevelUp; } }
+
+    public Inventory Inventory { get { return inventory; } }
+
+    private void Awake()
+    {
+        inventory = GetComponent<Inventory>();
+    }
 
     private void Start()
     {

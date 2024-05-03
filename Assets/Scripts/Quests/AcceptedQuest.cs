@@ -11,6 +11,8 @@ public class AcceptedQuest : MonoBehaviour
     [SerializeField] private TMP_Text numberOfItemsNeededText;
     [SerializeField] private Button doneButton; 
     private QuestData questData;
+    private Inventory inventory;
+
     public QuestData QuestData => questData;
 
     private void Start()
@@ -29,6 +31,8 @@ public class AcceptedQuest : MonoBehaviour
 
     private void DoneQuest()
     {
+
+
         questManager.RewardFromQuest(questData);
         questData = null;
         gameObject.SetActive(false);

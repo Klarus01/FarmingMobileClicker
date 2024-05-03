@@ -6,15 +6,27 @@ public class Inventory : MonoBehaviour
 {
     private Dictionary<ItemsData, int> countByItem = new Dictionary<ItemsData, int>();
 
-    public void AddItemToInventory(ItemsData items, int count = 1)
+    public Dictionary<ItemsData, int> CountByItem { get { return countByItem; } }
+
+    public void AddItemToInventory(ItemsData itemData, int count = 1)
     {
-        if(countByItem.ContainsKey(items))
+        if(countByItem.ContainsKey(itemData))
         {
-            countByItem[items] += count;
+            countByItem[itemData] += count;
         }
         else
         {
-            countByItem.Add(items, count);
+            countByItem.Add(itemData, count);
+        }
+    }
+
+    public void ConsumeItem(ItemsData itemsData, int count = 1)
+    {
+        countByItem[itemsData] -= count;
+
+        if(countByItem[itemsData] == 0)
+        {
+            countByItem.Remove(itemsData);
         }
     }
 }
