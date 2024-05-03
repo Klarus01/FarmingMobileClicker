@@ -4604,6 +4604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1214495202}
   - component: {fileID: 1214495201}
+  - component: {fileID: 1214495204}
   - component: {fileID: 1214495203}
   m_Layer: 0
   m_Name: Player
@@ -4655,6 +4656,18 @@ MonoBehaviour:
   levelText: {fileID: 4730746}
   expText: {fileID: 1028543926}
   player: {fileID: 1214495201}
+--- !u!114 &1214495204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214495200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934a9100dfc344b4384973570d5250ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1216526762
 GameObject:
   m_ObjectHideFlags: 0

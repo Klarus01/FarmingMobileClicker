@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private Dictionary<ItemsData, int> countByItem = new Dictionary<ItemsData, int>();
+    private Dictionary<ItemsData, int> countByItem = new();
 
-    public Dictionary<ItemsData, int> CountByItem { get { return countByItem; } }
+    public Dictionary<ItemsData, int> CountByItem => countByItem;
 
     public void AddItemToInventory(ItemsData itemData, int count = 1)
     {
-        if(countByItem.ContainsKey(itemData))
+        if(!countByItem.TryAdd(itemData, count))
         {
             countByItem[itemData] += count;
-        }
-        else
-        {
-            countByItem.Add(itemData, count);
         }
     }
 
