@@ -6,7 +6,6 @@ public class Soil : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private SpriteRenderer plantSprite;
 
-    private Player player;
     private bool isPlantGrowUp;
     private float growTimeLeft;
     private SeedsData seed;
@@ -14,13 +13,9 @@ public class Soil : MonoBehaviour
     public bool IsPlantGrowUp => isPlantGrowUp;
     public SeedsData Seed => seed;
 
+    public static Action OnHarvestPlant;
 
     public bool IsSoilEmpty() => seed == null;
-
-    private void Start()
-    {
-        player = FindObjectOfType<Player>();
-    }
 
     private void Update()
     {
@@ -48,10 +43,11 @@ public class Soil : MonoBehaviour
 
     public void HarvestPlant()
     {
-        player.AddExp(seed.Plant.ExpFromCollect);
+        Player.Instance.AddExp(seed.Plant.ExpFromCollect);
+        Player.Instance.Inventory.AddItemToInventory(seed.Plant);
+        OnHarvestPlant?.Invoke();
         seed = null;
         plantSprite.gameObject.SetActive(false);
-        //inventory.AddItemToInventory(seed.Plant);
     }
 
     private void GrowingUpPlant()
@@ -93,6 +89,4 @@ public class Soil : MonoBehaviour
 
         plantSprite.sprite = seed.PlantStadiumSprites[numberOfSprite];
     }
-
-
 }

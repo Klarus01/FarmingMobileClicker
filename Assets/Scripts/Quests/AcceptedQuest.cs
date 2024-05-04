@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,16 @@ public class AcceptedQuest : MonoBehaviour
 
     public QuestData QuestData => questData;
 
+    private void OnEnable()
+    {
+        Soil.OnHarvestPlant += RefreshItemCounts;
+    }
+
+    private void OnDisable()
+    {
+        Soil.OnHarvestPlant -= RefreshItemCounts;
+    }
+    
     private void Start()
     {
         doneButton.onClick.AddListener(DoneQuest);
@@ -23,16 +34,44 @@ public class AcceptedQuest : MonoBehaviour
     public void NewQuestInit(QuestData newQuestData)
     {
         questData = newQuestData;
-
         if (!questData) return;
         questNameText.SetText(questData.questName);
-        numberOfItemsNeededText.SetText("X/" + questData.RequestList[0].plantCount); //change X to amount from player eq
+        RefreshItemCounts();
     }
 
+    private void RefreshItemCounts()
+    {
+        if (CheckIfQuestIsDone())
+        {
+            doneButton.interactable = true;
+        }
+        else
+        {
+            doneButton.interactable = false;
+        }
+
+        bool hasItem = Player.Instance.Inventory.CountByItem.ContainsKey(questData.RequestList[0].plants);
+        int itemCount = hasItem ? Player.Instance.Inventory.CountByItem[questData.RequestList[0].plants] : 0;
+        numberOfItemsNeededText.SetText(itemCount + "/" + questData.RequestList[0].plantCount);
+    }
+
+    private bool CheckIfQuestIsDone()
+    {
+        if (questData == null) return false;
+
+        foreach (var request in questData.RequestList)
+        {
+            if (!Player.Instance.Inventory.CountByItem.ContainsKey(request.plants)) return false;
+            if (Player.Instance.Inventory.CountByItem[request.plants] < request.plantCount) return false;
+        }
+
+        return true;
+    }
+    
     private void DoneQuest()
     {
-
-
+        Player.Instance.Inventory.ConsumeItem(questData.RequestList[0].plants, questData.RequestList[0].plantCount);
+        Soil.OnHarvestPlant?.Invoke();
         questManager.RewardFromQuest(questData);
         questData = null;
         gameObject.SetActive(false);
