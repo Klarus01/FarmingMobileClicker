@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 2599871428211455444}
   - component: {fileID: 4224729813259890271}
   - component: {fileID: 3424332445968087430}
+  - component: {fileID: 7785070475090340092}
   m_Layer: 5
   m_Name: Buy
   m_TagString: Untagged
@@ -563,6 +564,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7785070475090340092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442919206958540579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919636d956f895e479a7da03c8280f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seedSo: {fileID: 11400000, guid: a4b1b73bcab641d469573e114f9d23e3, type: 2}
+  player: {fileID: 0}
 --- !u!1 &3322536909085355872
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +766,7 @@ GameObject:
   - component: {fileID: 1467906824061547499}
   - component: {fileID: 2020161015895609447}
   - component: {fileID: 8166198691860062107}
+  - component: {fileID: 5881463270790702727}
   m_Layer: 5
   m_Name: Sell
   m_TagString: Untagged
@@ -860,6 +876,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5881463270790702727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098683828925061897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bef10f2133d4f448c62fd599fb4d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantSo: {fileID: 11400000, guid: a4b1b73bcab641d469573e114f9d23e3, type: 2}
+  player: {fileID: 0}
 --- !u!1 &4315461041185813440
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +1006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Place
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1620,7 +1650,7 @@ GameObject:
   - component: {fileID: 5468608356044447138}
   - component: {fileID: 4918717228836972015}
   m_Layer: 5
-  m_Name: Plant
+  m_Name: Place
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

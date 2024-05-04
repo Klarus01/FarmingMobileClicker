@@ -29,4 +29,9 @@ public class Inventory : MonoBehaviour
             countByItem.Remove(itemsData);
         }
     }
+
+    public bool CanConsumeItem(ItemsData itemsData)
+    {
+        return countByItem[itemsData] >= 0;
+    }
 }

@@ -10,7 +10,7 @@ public class Player : SingletoneMonobehaviour<Player>
 
     private int level = 1;
 
-    private int money;
+    private int money = 100;
 
     private int exp;
     private int expToLevelUp = 50;
@@ -22,6 +22,7 @@ public class Player : SingletoneMonobehaviour<Player>
     public int Exp { get { return exp; } }
     public int Level { get { return level; } }
     public int ExpToLevelUp { get { return expToLevelUp; } }
+    public int Money { get { return money; } }
 
     public Inventory Inventory { get { return inventory; } }
 
@@ -41,6 +42,17 @@ public class Player : SingletoneMonobehaviour<Player>
         TryToLevelUp();
 
         OnGrainExp?.Invoke();
+    }
+
+    public bool UpdateMoney(int moneyToAdd)
+    {
+        if (money + moneyToAdd > 0)
+        {
+            money += moneyToAdd;
+            return true;
+        }
+        Debug.Log("nie masz hajsu biedaku");
+        return false;
     }
 
     private void TryToLevelUp()
