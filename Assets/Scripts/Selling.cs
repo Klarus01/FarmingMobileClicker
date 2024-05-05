@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Selling : MonoBehaviour
 {
-    [SerializeField] private SeedsData plantSo;
+    [SerializeField] private PlantsData plantSo;
     [SerializeField] private Player player;
 
     private Button button;
