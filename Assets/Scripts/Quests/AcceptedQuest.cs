@@ -18,12 +18,12 @@ public class AcceptedQuest : MonoBehaviour
 
     private void OnEnable()
     {
-        Soil.OnHarvestPlant += RefreshItemCounts;
+        Soil.onHarvestPlant += RefreshItemCounts;
     }
 
     private void OnDisable()
     {
-        Soil.OnHarvestPlant -= RefreshItemCounts;
+        Soil.onHarvestPlant -= RefreshItemCounts;
     }
     
     private void Start()
@@ -71,7 +71,7 @@ public class AcceptedQuest : MonoBehaviour
     private void DoneQuest()
     {
         Player.Instance.Inventory.ConsumeItem(questData.RequestList[0].plants, questData.RequestList[0].plantCount);
-        Soil.OnHarvestPlant?.Invoke();
+        Soil.onHarvestPlant?.Invoke();
         questManager.RewardFromQuest(questData);
         questData = null;
         gameObject.SetActive(false);

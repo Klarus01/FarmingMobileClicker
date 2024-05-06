@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Soil : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Soil : MonoBehaviour
     public bool IsPlantGrowUp => isPlantGrowUp;
     public SeedsData Seed => seed;
 
-    public static Action OnHarvestPlant;
+    public static Action onHarvestPlant;
 
     public bool IsSoilEmpty() => seed == null;
 
@@ -27,27 +28,35 @@ public class Soil : MonoBehaviour
         GrowingUpPlant();
     }
 
-    public void PlantSeed(SeedsData seed)
+    public void PlantSeed(SeedsData seedData)
     {
-        if (seed == null)
+        if (seedData == null)
         {
             return;
         }
 
-        this.seed = seed;
+        this.seed = seedData;
         isPlantGrowUp = false;
-        growTimeLeft = seed.TimeToCreate;
+        growTimeLeft = seedData.TimeToCreate;
         plantSprite.gameObject.SetActive(true);
-        plantSprite.sprite = seed.ItemSprite;
+        plantSprite.sprite = seedData.ItemSprite;
     }
 
     public void HarvestPlant()
     {
         Player.Instance.AddExp(seed.Plant.ExpFromCollect);
-        Player.Instance.Inventory.AddItemToInventory(seed.Plant);
-        OnHarvestPlant?.Invoke();
+        Player.Instance.Inventory.AddItemToInventory(seed.Plant, NumberOfPlantsToHarvest());
+        onHarvestPlant?.Invoke();
         seed = null;
         plantSprite.gameObject.SetActive(false);
+    }
+
+    private int NumberOfPlantsToHarvest()
+    {
+        var percentage = Player.Instance.CropYield % 1;
+        var count = Random.Range(0.0f, 1.0f) <= percentage ? 1 : 0;
+        count += Mathf.FloorToInt(Player.Instance.CropYield);
+        return count;
     }
 
     private void GrowingUpPlant()
@@ -57,7 +66,7 @@ public class Soil : MonoBehaviour
             return;
         }
 
-        growTimeLeft -= Time.deltaTime;
+        growTimeLeft -= (Time.deltaTime * Player.Instance.GrowthSpeed);
 
         if (growTimeLeft <= 0)
         {
