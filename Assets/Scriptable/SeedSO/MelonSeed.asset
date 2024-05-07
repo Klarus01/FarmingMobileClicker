@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d37830b6d8adb4aa97449e41d97265, type: 3}
+  m_Name: MelonSeed
+  m_EditorClassIdentifier: 
+  itemValue: 20
+  itemSprite: {fileID: -2131593443, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  timeToCreate: 120
+  expFromCollect: 20
+  plant: {fileID: 11400000, guid: db7670951d016544a883e86bd7813244, type: 2}
+  plantStadiumSprite:
+  - {fileID: -1168239757, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: 634890403, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -1288349241, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -2109579058, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}

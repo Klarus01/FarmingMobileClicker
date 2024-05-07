@@ -1,18 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Seed : MonoBehaviour
 {
     [SerializeField] private SoilClickHandler clickHandler;
-    [SerializeField] private SeedsData seedData;
     [SerializeField] private Image image;
     [SerializeField] private Button button;
+    [SerializeField] private SeedsData seedData;
     private Soil soil;
+    public bool isUnlocked;
+    public SeedsData SeedData => seedData;
     
     private void Start()
     {
@@ -20,9 +17,9 @@ public class Seed : MonoBehaviour
         button.onClick.AddListener(PlantSeedInSoil);
     }
 
-    public void SetSoil(Soil soil)
+    public void SetSoil(Soil newSoil)
     {
-        this.soil = soil;
+        this.soil = newSoil;
     }
 
     private void PlantSeedInSoil()

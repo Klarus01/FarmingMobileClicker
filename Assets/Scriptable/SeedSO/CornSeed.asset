@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d37830b6d8adb4aa97449e41d97265, type: 3}
+  m_Name: CornSeed
+  m_EditorClassIdentifier: 
+  itemValue: 10
+  itemSprite: {fileID: 1162912194, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  timeToCreate: 90
+  expFromCollect: 16
+  plant: {fileID: 11400000, guid: 310777858dba11247a47542c9f66c2d9, type: 2}
+  plantStadiumSprite:
+  - {fileID: 1055070012, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -1967123785, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -123730389, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
+  - {fileID: -1650049174, guid: 19c851d35a527084daa67504bf8b4c09, type: 3}
