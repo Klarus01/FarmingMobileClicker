@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class UpgradeHandrel : SingletoneMonobehaviour<UpgradeHandrel>
 {
-    [SerializeField] private Dictionary<UpgradeData, int> countByUpgradeData = new(); 
+    [SerializeField] private Dictionary<UpgradeType, float> valueByUpgradeType = new(); 
 
-    public Dictionary<UpgradeData, int> CountByUpgradeData { get { return countByUpgradeData; } }
+    public Dictionary<UpgradeType, float> ValueByUpgradeType { get { return valueByUpgradeType; } }
 
-    public void AddUpgrade(UpgradeData upgradeData, int count = 1)
+    public void AddUpgrade(UpgradeType upgradeType, float value)
     {
-        if(countByUpgradeData.ContainsKey(upgradeData))
+        if(valueByUpgradeType.ContainsKey(upgradeType))
         {
-            countByUpgradeData[upgradeData] += count;
+            valueByUpgradeType[upgradeType] += value;
             return;
         }
 
-        countByUpgradeData.Add(upgradeData, count);
+        valueByUpgradeType.Add(upgradeType, value);
     }
 }

@@ -12,10 +12,6 @@ public class Player : SingletoneMonobehaviour<Player>
 
     private int exp;
     private int expToLevelUp = 50;
-
-    private float cropYield = 1f;
-    private float growthSpeed = 1f;
-    private float cropPrice = 1f;
     
     private Inventory inventory;
 
@@ -25,10 +21,6 @@ public class Player : SingletoneMonobehaviour<Player>
     public int Level { get { return level; } }
     public int ExpToLevelUp { get { return expToLevelUp; } }
     public int Money { get { return money; } }
-    
-    public float CropYield { get => cropYield; set => cropYield = value; }
-    public float GrowthSpeed { get => growthSpeed; set => growthSpeed = value; }
-    public float CropPrice { get => cropPrice; set => cropPrice = value; }
 
     public Inventory Inventory { get { return inventory; } }
 
