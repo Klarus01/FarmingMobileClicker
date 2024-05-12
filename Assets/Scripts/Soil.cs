@@ -37,7 +37,8 @@ public class Soil : MonoBehaviour
 
         this.seed = seedData;
         isPlantGrowUp = false;
-        growTimeLeft = seedData.TimeToCreate * (1 - UpgradeHandrel.Instance.ValueByUpgradeType[UpgradeType.GrowthSpeed]);
+        if (!UpgradeHandrel.Instance.ValueByUpgradeType.ContainsKey(UpgradeType.GrowthSpeed)) growTimeLeft = seedData.TimeToCreate;
+        else growTimeLeft = seedData.TimeToCreate * (1 - UpgradeHandrel.Instance.ValueByUpgradeType[UpgradeType.GrowthSpeed]);
         plantSprite.gameObject.SetActive(true);
         plantSprite.sprite = seedData.ItemSprite;
     }
@@ -53,9 +54,14 @@ public class Soil : MonoBehaviour
 
     private int NumberOfPlantsToHarvest()
     {
-        var percentage = UpgradeHandrel.Instance.ValueByUpgradeType[UpgradeType.CropYield] % 1;
-        var count = Random.Range(0.0f, 1.0f) <= percentage ? 1 : 0;
-        count += Mathf.FloorToInt(UpgradeHandrel.Instance.ValueByUpgradeType[UpgradeType.CropYield]);
+        var count = 0;
+        if (!UpgradeHandrel.Instance.ValueByUpgradeType.ContainsKey(UpgradeType.CropYield)) count = 0;
+        else
+        {
+            var percentage = UpgradeHandrel.Instance.ValueByUpgradeType[UpgradeType.CropYield] % 1;
+            count = Random.Range(0.0f, 1.0f) <= percentage ? 1 : 0;
+            count += Mathf.FloorToInt(UpgradeHandrel.Instance.ValueByUpgradeType[UpgradeType.CropYield]);
+        }
         return count + 1;
     }
 
