@@ -8,16 +8,25 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private Camera cam;
 
+    [Header("Zoom")]
+    [SerializeField] private float zoomMax;
+    [SerializeField] private float zoomMin;
+
+    [Header("Movement")]
+    [SerializeField] private float moveLeft;
+    [SerializeField] private float moveRight;
+    [SerializeField] private float moveUp;
+    [SerializeField] private float moveDown;
+
     private bool moveAllowed;
     private Vector3 touchPos;
-
     private void Update()
     {
         if(Input.touchCount > 0)
         {
             if(Input.touchCount == 2)
             {
-                //zoom
+                CameraZoom();
             }
             else
             {

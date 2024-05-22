@@ -6,6 +6,8 @@ public class Player : SingletoneMonobehaviour<Player>
     public Action OnLevelUp;
     public Action OnGrainExp;
 
+    [SerializeField] private UpgradeDataList upgradeDataList;
+
     private int level = 1;
 
     private int money = 100;
@@ -60,7 +62,15 @@ public class Player : SingletoneMonobehaviour<Player>
         level++;
         exp -= expToLevelUp;
         expToLevelUp *= EXP_TO_LEVEL_UP_MULTIPLIER;
+        GrainUograde();
         OnLevelUp?.Invoke();
         TryToLevelUp();
+    }
+
+    private void GrainUograde()
+    {
+        int upgradeIndex = UnityEngine.Random.Range(0, upgradeDataList.UpgradeDatasList.Count);
+
+        UpgradeHandrel.Instance.AddUpgrade(upgradeDataList.UpgradeDatasList[upgradeIndex]);
     }
 }

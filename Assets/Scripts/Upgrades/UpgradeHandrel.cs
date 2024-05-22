@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,10 @@ public class UpgradeHandrel : SingletoneMonobehaviour<UpgradeHandrel>
         }
 
         valueByUpgradeType.Add(upgradeType, value);
+    }
+
+    internal void AddUpgrade(UpgradeData upgradeData)
+    {
+        AddUpgrade(upgradeData.type, upgradeData.value);
     }
 }
