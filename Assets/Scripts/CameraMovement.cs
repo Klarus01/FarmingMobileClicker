@@ -60,6 +60,14 @@ public class CameraMovement : MonoBehaviour
                 {
                     Vector3 direction = touchPos - cam.ScreenToWorldPoint(touch.position);
                     cam.transform.position += direction;
+
+                    cam.transform.position = new Vector3
+                        (
+                        Mathf.Clamp(cam.transform.position.x, moveLeft, moveRight),
+                        Mathf.Clamp(cam.transform.position.y, moveDown, moveUp),
+                        transform.position.z
+
+                        ) ;
                 }
                 break;
 
@@ -82,9 +90,9 @@ public class CameraMovement : MonoBehaviour
         float distTouch = (touchZeroLastPos - touchOneLastPos).magnitude;
         float currentDistTouch = (touchZero.position - touchOne.position).magnitude;
 
-        float diff = currentDistTouch - distTouch;
+        float diff = (currentDistTouch - distTouch) * 0.01f;
 
-        cam.orthographicSize -= distTouch;
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - diff, zoomMin, zoomMax);
     }
 
 }
