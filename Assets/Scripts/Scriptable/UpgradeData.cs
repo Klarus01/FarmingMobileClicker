@@ -9,6 +9,6 @@ public class UpgradeData : ScriptableObject
 
     public void ApplyUpgrade()
     {
-        UpgradeHandrel.Instance.AddUpgrade(type, value);
+        UpgradeHandler.Instance.AddUpgrade(type, value);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeHandrel : SingletoneMonobehaviour<UpgradeHandrel>
+public class UpgradeHandler : SingletoneMonobehaviour<UpgradeHandler>
 {
     [SerializeField] private Dictionary<UpgradeType, float> valueByUpgradeType = new(); 
 

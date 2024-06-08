@@ -995,7 +995,7 @@ MonoBehaviour:
   image: {fileID: 129354552}
   button: {fileID: 129354551}
   seedData: {fileID: 11400000, guid: bffe8cb7bf7d1024a9e76c3419aef6a5, type: 2}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!114 &129354551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,7 +3677,7 @@ MonoBehaviour:
   image: {fileID: 605759707}
   button: {fileID: 605759706}
   seedData: {fileID: 11400000, guid: 1586505d94ece494fa5fa2551378660a, type: 2}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!114 &605759706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3897,7 +3897,7 @@ MonoBehaviour:
   image: {fileID: 626643185}
   button: {fileID: 626643184}
   seedData: {fileID: 11400000, guid: c32931a0c5beed54391a8214425e21b5, type: 2}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!114 &626643184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4035,7 +4035,7 @@ MonoBehaviour:
   image: {fileID: 643104254}
   button: {fileID: 643104253}
   seedData: {fileID: 11400000, guid: 9e85083b5492270428d1f28c67f92a7d, type: 2}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!114 &643104253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4506,7 +4506,7 @@ MonoBehaviour:
   image: {fileID: 674592638}
   button: {fileID: 674592637}
   seedData: {fileID: 11400000, guid: 6601e34fb210f404a9a21e6ab1811064, type: 2}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!114 &674592637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6513,7 +6513,7 @@ MonoBehaviour:
   image: {fileID: 1109925030}
   button: {fileID: 1109925029}
   seedData: {fileID: 11400000, guid: e3c6be64dea3c5b4e8903b73677bd8f9, type: 2}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!114 &1109925029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6627,6 +6627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464f9d00dc5a83441a7915e8f2a801db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeDataList: {fileID: 11400000, guid: 4bdaa7a6669132c4b9fb72e50b2f598a, type: 2}
+  exp: 0
 --- !u!4 &1214495202
 Transform:
   m_ObjectHideFlags: 0
@@ -7160,7 +7162,7 @@ MonoBehaviour:
   image: {fileID: 1388193391}
   button: {fileID: 1388193390}
   seedData: {fileID: 11400000, guid: 660b5f105e4e63b4a81e12097632af52, type: 2}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!114 &1388193390
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class Player : SingletoneMonobehaviour<Player>
 {
@@ -12,8 +13,10 @@ public class Player : SingletoneMonobehaviour<Player>
 
     private int money = 100;
 
-    private int exp;
     private int expToLevelUp = 50;
+    [SerializeField, Range(0, 1000)] private int exp;
+    private int upgradePointsToSpend = 0;
+    public int UpgradePointsToSpend { get { return upgradePointsToSpend; } set { upgradePointsToSpend = value; } }
     
     private Inventory inventory;
 
@@ -25,7 +28,7 @@ public class Player : SingletoneMonobehaviour<Player>
     public int Money { get { return money; } }
 
     public Inventory Inventory { get { return inventory; } }
-
+    
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
@@ -62,15 +65,16 @@ public class Player : SingletoneMonobehaviour<Player>
         level++;
         exp -= expToLevelUp;
         expToLevelUp *= EXP_TO_LEVEL_UP_MULTIPLIER;
-        GrainUograde();
+        upgradePointsToSpend++;
+        GrainUpgrade();
         OnLevelUp?.Invoke();
         TryToLevelUp();
     }
 
-    private void GrainUograde()
+    private void GrainUpgrade()
     {
         int upgradeIndex = UnityEngine.Random.Range(0, upgradeDataList.UpgradeDatasList.Count);
 
-        UpgradeHandrel.Instance.AddUpgrade(upgradeDataList.UpgradeDatasList[upgradeIndex]);
+        UpgradeHandler.Instance.AddUpgrade(upgradeDataList.UpgradeDatasList[upgradeIndex]);
     }
 }

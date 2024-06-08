@@ -48,7 +48,12 @@ public class UpgradeManager : MonoBehaviour
             upgrade.gameObject.SetActive(false);
         }
 
-        upgradesMenuPanel.SetActive(false);
+        Player.Instance.UpgradePointsToSpend -= 1;
+
+        if (Player.Instance.UpgradePointsToSpend.Equals(0))
+        {
+            upgradesMenuPanel.SetActive(false);
+        }
     }
 
     private void ShowUpgradeMenu()
