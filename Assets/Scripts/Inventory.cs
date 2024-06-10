@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Inventory : MonoBehaviour
 {
+    public Action onUpdateInventory;
+
     private Dictionary<ItemsData, int> countByItem = new();
 
     public Dictionary<ItemsData, int> CountByItem => countByItem;
@@ -14,6 +17,8 @@ public class Inventory : MonoBehaviour
         {
             countByItem[itemData] += count;
         }
+
+        onUpdateInventory?.Invoke();
     }
 
     public void ConsumeItem(ItemsData itemsData, int count = 1)
@@ -24,6 +29,8 @@ public class Inventory : MonoBehaviour
         {
             countByItem.Remove(itemsData);
         }
+
+        onUpdateInventory?.Invoke();
     }
 
     public bool CanConsumeItem(ItemsData itemsData)

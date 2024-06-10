@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class Buying : MonoBehaviour
 {
@@ -10,12 +10,14 @@ public class Buying : MonoBehaviour
     [SerializeField] private Player player;
 
     private Button button;
-
+    private TextMeshProUGUI priceText;
     private void Awake()
     {
         button = GetComponent<Button>();
 
         button.onClick.AddListener(Buy);
+        priceText = button.GetComponentInChildren<TextMeshProUGUI>();
+        priceText.text = seedSo.ItemValue.ToString();
     }
 
     private void Buy()
