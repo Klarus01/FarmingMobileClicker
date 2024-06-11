@@ -14,18 +14,4 @@ public class BuildingClickHandler : MonoBehaviour
     {
         actionPanel.SetActive(true);
     }
-
-    public void OnProduceButtonClick()
-    {
-        BuildingUI buildingUI = actionPanel.GetComponent<BuildingUI>();
-        if (buildingUI != null)
-        {
-            buildingUI.OnProduceButtonClick();
-        }
-    }
-
-    public void OnCancelButtonClick()
-    {
-        actionPanel.SetActive(false);
-    }
 }
