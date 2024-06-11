@@ -8,6 +8,8 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private Inventory inventory;
 
+    [SerializeField] private GameObject ShopPanel;
+
     [SerializeField] private GameObject panelWithSlots;
     [SerializeField] private TextMeshProUGUI emptyText;
     private Slot[] slots;
@@ -18,11 +20,15 @@ public class InventoryUI : MonoBehaviour
         inventory.onUpdateInventory += UpdateInventory;
     }
 
+    private void OnEnable()
+    {
+        ShopPanel.SetActive(false);
+    }
+
     private void Start()
     {
         UpdateInventory();
-        Debug.Log(slots.Length);
-    }
+    }   
 
     private void UpdateInventory()
     {

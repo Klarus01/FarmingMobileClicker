@@ -6,28 +6,62 @@ using TMPro;
 
 public class Buying : MonoBehaviour
 {
-    [SerializeField] private SeedsData seedSo;
+    [SerializeField] private ItemsData itemSo;
     [SerializeField] private Player player;
 
-    private Button button;
+    [SerializeField] private int levelRequired;
+    [SerializeField] private Image itemImage;
+    [SerializeField] private Canvas ShopBagCanvas;
+
+    [SerializeField] private Button button;
+
     private TextMeshProUGUI priceText;
     private void Awake()
     {
-        button = GetComponent<Button>();
-
         button.onClick.AddListener(Buy);
         priceText = button.GetComponentInChildren<TextMeshProUGUI>();
-        priceText.text = seedSo.ItemValue.ToString();
+        priceText.text = "Level" + levelRequired.ToString();
+        player.OnLevelUp += UnlockSlot;
+    }
+
+    private void Start()
+    {
+        UnlockSlot();
+    }
+
+    private void UnlockSlot()
+    {
+        if(player.Level != levelRequired)
+        {
+            return;
+        }
+
+        priceText.text = itemSo.ItemValue.ToString();
+        itemImage.sprite = itemSo.ItemSprite;
     }
 
     private void Buy()
     {
-        if (player.UpdateMoney(seedSo.ItemValue * -1))
+        if(player.Level < levelRequired)
         {
-            player.Inventory.AddItemToInventory(seedSo);
+            return;
         }
-        
-        Debug.Log(player.Money);
-        Debug.Log(player.Inventory.CountByItem);
+
+        if(player.Money < itemSo.ItemValue)
+        {
+            return;
+        }
+
+        if(itemSo is SoilData)
+        {
+            //Buy soil
+            ShopBagCanvas.gameObject.SetActive(false);
+            return;
+        }
+
+        if (player.UpdateMoney(itemSo.ItemValue * -1))
+        {
+            player.Inventory.AddItemToInventory(itemSo);
+        }
     }
 }

@@ -535,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4018278385856547402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1226,7 +1226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2007501728963456631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1431,6 +1431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopTile (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: ShopBagCanvas
+      value: 
+      objectReference: {fileID: 8012782391076822072}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_Pivot.x
       value: -0.5
@@ -1445,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1453,15 +1457,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1493,11 +1497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -84.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -62.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1533,6 +1537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopTile
       objectReference: {fileID: 0}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: ShopBagCanvas
+      value: 
+      objectReference: {fileID: 8012782391076822072}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_Pivot.x
       value: -0.5
@@ -1547,7 +1555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1555,15 +1563,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1595,11 +1603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -84.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 187.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1737,6 +1745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopTile (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: ShopBagCanvas
+      value: 
+      objectReference: {fileID: 8012782391076822072}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_Pivot.x
       value: -0.5
@@ -1751,7 +1763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1759,15 +1771,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1799,11 +1811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 253.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 187.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1941,6 +1953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopTile (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: ShopBagCanvas
+      value: 
+      objectReference: {fileID: 8012782391076822072}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_Pivot.x
       value: -0.5
@@ -1955,7 +1971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1963,15 +1979,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2003,11 +2019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 253.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -62.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2247,6 +2263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopTile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: ShopBagCanvas
+      value: 
+      objectReference: {fileID: 8012782391076822072}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_Pivot.x
       value: -0.5
@@ -2261,7 +2281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2269,15 +2289,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2309,11 +2329,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 84.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 187.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2451,6 +2471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopTile (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: ShopBagCanvas
+      value: 
+      objectReference: {fileID: 8012782391076822072}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_Pivot.x
       value: -0.5
@@ -2465,7 +2489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2473,15 +2497,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2513,11 +2537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 84.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -62.5
       objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
