@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 
 public class Soil : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
     [SerializeField] private SpriteRenderer plantSprite;
 
     private bool isPlantGrowUp;

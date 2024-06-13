@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6492106185316313648}
   - component: {fileID: 7512050864121748736}
+  - component: {fileID: 3792360112184971486}
   m_Layer: 5
   m_Name: ShopTile
   m_TagString: Untagged
@@ -50,6 +51,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &3792360112184971486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002917163284813067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919636d956f895e479a7da03c8280f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSo: {fileID: 0}
+  player: {fileID: 0}
+  levelRequired: 0
+  itemImage: {fileID: 8808020751439755595}
+  ShopBagCanvas: {fileID: 0}
+  button: {fileID: 4452571273073827661}
 --- !u!1 &3722761513301639656
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +81,6 @@ GameObject:
   - component: {fileID: 3916865614384337695}
   - component: {fileID: 2949392309133936788}
   - component: {fileID: 4452571273073827661}
-  - component: {fileID: 9098741936655502903}
   m_Layer: 5
   m_Name: Buy
   m_TagString: Untagged
@@ -172,20 +190,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &9098741936655502903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3722761513301639656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 919636d956f895e479a7da03c8280f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedSo: {fileID: 11400000, guid: a4b1b73bcab641d469573e114f9d23e3, type: 2}
-  player: {fileID: 0}
 --- !u!1 &5686020178157194312
 GameObject:
   m_ObjectHideFlags: 0

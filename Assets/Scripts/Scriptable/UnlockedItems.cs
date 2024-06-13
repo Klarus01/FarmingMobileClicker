@@ -11,12 +11,13 @@ public class UnlockedItems : ScriptableObject
     [Serializable]
     public struct Unlocked
     {
-        [SerializeField] public ItemsData items;
-        [SerializeField] public int count;
+        public ItemsData items;
+        public int count;
 
         public ItemsData Items { get { return items; } }
         public int Count { get { return count; } }
     }
 
+    public int level;
     public List<Unlocked> unlockedList;
 }
