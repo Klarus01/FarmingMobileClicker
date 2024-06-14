@@ -7,7 +7,6 @@ using TMPro;
 public class Buying : MonoBehaviour
 {
     [SerializeField] private ItemsData itemSo;
-    [SerializeField] private Player player;
 
     [SerializeField] private int levelRequired;
     [SerializeField] private Image itemImage;
@@ -21,7 +20,7 @@ public class Buying : MonoBehaviour
         button.onClick.AddListener(Buy);
         priceText = button.GetComponentInChildren<TextMeshProUGUI>();
         priceText.text = "Level" + levelRequired.ToString();
-        player.OnLevelUp += UnlockSlot;
+        Player.Instance.OnLevelUp += UnlockSlot;
     }
 
     private void Start()
@@ -31,23 +30,23 @@ public class Buying : MonoBehaviour
 
     private void UnlockSlot()
     {
-        if(player.Level != levelRequired)
+        itemImage.sprite = itemSo.ItemSprite;
+        if(Player.Instance.Level != levelRequired)
         {
             return;
         }
 
         priceText.text = itemSo.ItemValue.ToString();
-        itemImage.sprite = itemSo.ItemSprite;
     }
 
     private void Buy()
     {
-        if(player.Level < levelRequired)
+        if(Player.Instance.Level < levelRequired)
         {
             return;
         }
 
-        if(player.Money < itemSo.ItemValue)
+        if(Player.Instance.Money < itemSo.ItemValue)
         {
             return;
         }
@@ -59,9 +58,9 @@ public class Buying : MonoBehaviour
             return;
         }
 
-        if (player.UpdateMoney(itemSo.ItemValue * -1))
+        if (Player.Instance.UpdateMoney(itemSo.ItemValue * -1))
         {
-            player.Inventory.AddItemToInventory(itemSo);
+            Player.Instance.Inventory.AddItemToInventory(itemSo);
         }
     }
 }

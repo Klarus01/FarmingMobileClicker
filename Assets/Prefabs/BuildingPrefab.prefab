@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 649776125534152751}
   - component: {fileID: 6698389716497822724}
   - component: {fileID: 642383440560114231}
-  - component: {fileID: -5545656866104153435}
+  - component: {fileID: -1628108117260328005}
   - component: {fileID: 504494531524316330}
   - component: {fileID: -7624353762266353574}
   - component: {fileID: 8195672552521435035}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSize: 4
---- !u!114 &-5545656866104153435
+--- !u!114 &-1628108117260328005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,11 +162,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1732103513173181061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2093311d71f6e04eaf57046f03d315b, type: 3}
+  m_Script: {fileID: 11500000, guid: 12274f8d570de4348b22e8ef20ebc2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectType: 2
+  actions:
+  - actionName: Turnip turnip turnip
+    displayName: Turnip
+    neededItems: {fileID: 11400000, guid: e2ccd0eea37734d42accddcf2bc7b03d, type: 2}
+    newItem: {fileID: 11400000, guid: 310777858dba11247a47542c9f66c2d9, type: 2}
+    neededItemsCount: 2
+    productionTime: 60
   actionPanel: {fileID: 4831715233323283157}
-  building: {fileID: 504494531524316330}
+  actionButtonPrefab: {fileID: 4112406060515132320, guid: e6e772e4c2bc4724b8aff3b043e3c0e9, type: 3}
 --- !u!114 &504494531524316330
 MonoBehaviour:
   m_ObjectHideFlags: 0

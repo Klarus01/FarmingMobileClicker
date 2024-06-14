@@ -535,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4018278385856547402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -695,7 +695,6 @@ MonoBehaviour:
   - {fileID: 3322536909085355872}
   uiToOpen:
   - {fileID: 1846431385590461218}
-  - {fileID: 0}
 --- !u!1 &3947084306705889311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,9 +1537,17 @@ PrefabInstance:
       value: ShopTile
       objectReference: {fileID: 0}
     - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: itemSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 74af3c95a8f3714418d9e27dbaff598f, type: 2}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: ShopBagCanvas
       value: 
       objectReference: {fileID: 8012782391076822072}
+    - target: {fileID: 3792360112184971486, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
+      propertyPath: levelRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6492106185316313648, guid: 68bb32a9e0b1181419d178df56aa28e2, type: 3}
       propertyPath: m_Pivot.x
       value: -0.5
