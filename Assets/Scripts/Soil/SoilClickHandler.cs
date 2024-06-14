@@ -1,13 +1,20 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class SoilClickHandler : MonoBehaviour
 {
     [SerializeField] private BuildingManager building;
-    [SerializeField] private Seed[] seeds;
     [SerializeField] private GameObject seedsPanel;
+
+    [SerializeField] private Inventory inventory;
+
+    [SerializeField] private Seed seedPref;
+
     private RectTransform seedsPanelRectTransform;
-    private int seedPanelWidth;
+    
+    private List<Seed> seeds = new List<Seed>();
     
     public GameObject SeedsPanel { get => seedsPanel; set => seedsPanel = value; }
     
@@ -15,6 +22,7 @@ public class SoilClickHandler : MonoBehaviour
 
     private void Start()
     {
+        inventory.onUpdateInventory += UpdateSeed;
         seedsPanelRectTransform = seedsPanel.GetComponent<RectTransform>();
     }
 
@@ -27,6 +35,35 @@ public class SoilClickHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CheckFieldsUnderMouse();
+        }
+    }
+
+    private void UpdateSeed()
+    {
+        int temp = 0;
+
+        foreach (ItemsData itemsData in inventory.CountByItem.Keys)
+        {
+            if (itemsData is not SeedsData)
+            {
+                continue;
+            }
+
+            if (temp >= seeds.Count)
+            {
+                Seed seed = Instantiate(seedPref, seedsPanel.transform);
+                seed.ClickHandler = this;
+                seeds.Add(seed);
+            }
+
+            seeds[temp].SeedData = itemsData as SeedsData;
+            seeds[temp].gameObject.SetActive(true);
+            temp++;
+        }
+
+        for (; temp < seeds.Count; temp++)
+        {
+            seeds[temp].gameObject.SetActive(false);
         }
     }
 
@@ -76,7 +113,7 @@ public class SoilClickHandler : MonoBehaviour
         }
 
         SetUpSeedPanelWidth(temp);
-        seedsPanel.transform.position = new Vector3(soil.transform.position.x, soil.transform.position.y + 1f);
+        seedsPanel.transform.position = soil.transform.position;
     }
     
     private bool IsPointerOverUIElement()
