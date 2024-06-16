@@ -1,38 +1,51 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Linq;
+using TMPro;
 
 public class ClickableObject : MonoBehaviour
 {
-    public enum ObjectType { Field, Animal, Building }
-    public ObjectType objectType;
+    private enum ObjectType { Field, Animal, Building }
+    [SerializeField] private ObjectType objectType;
 
     [System.Serializable]
     public class Action
     {
         public string actionName;
-        public string displayName;
         public ItemsData neededItems;
         public ItemsData newItem;
         public int neededItemsCount;
         public float productionTime;
     }
 
-    public List<Action> actions = new List<Action>();
+    public List<Action> actions = new();
 
-    public GameObject actionPanel;
-    public Button actionButtonPrefab;
-    private List<Button> instantiatedButtons = new List<Button>();
+    [SerializeField] private GameObject actionPanel;
+    [SerializeField] private Button actionButtonPrefab;
+    [SerializeField] private Button fullscreenButton;
+
+    private List<Button> instantiatedButtons = new();
+    private bool ignoreNextClick;
+
+    private static ClickableObject currentlyActiveObject;
 
     void Start()
     {
         actionPanel.SetActive(false);
+        fullscreenButton.gameObject.SetActive(false);
+
+        fullscreenButton.onClick.AddListener(CloseActionPanel);
     }
 
     void OnMouseDown()
     {
+        if (currentlyActiveObject != null && currentlyActiveObject != this)
+        {
+            currentlyActiveObject.CloseActionPanel();
+        }
+
+        currentlyActiveObject = this;
         ShowActions();
     }
 
@@ -47,12 +60,33 @@ public class ClickableObject : MonoBehaviour
         foreach (var action in actions)
         {
             Button newButton = Instantiate(actionButtonPrefab, actionPanel.transform);
+            bool hasItem = Player.Instance.Inventory.CountByItem.ContainsKey(action.neededItems);
+            int itemCount = hasItem ? Player.Instance.Inventory.CountByItem[action.neededItems] : 0;
+            newButton.GetComponentInChildren<TMP_Text>().SetText($"{itemCount}/{action.neededItemsCount} turnip\nyou will produce: {action.newItem.name}");
             newButton.name = action.actionName;
             newButton.onClick.AddListener(() => TryPerformAction(action.actionName, action.neededItems, action.neededItemsCount, action.productionTime, action.newItem));
             instantiatedButtons.Add(newButton);
         }
 
         actionPanel.SetActive(true);
+        fullscreenButton.gameObject.SetActive(true);
+        ignoreNextClick = true;
+    }
+
+    void CloseActionPanel()
+    {
+        if (ignoreNextClick)
+        {
+            ignoreNextClick = false;
+            return;
+        }
+
+        actionPanel.SetActive(false);
+        fullscreenButton.gameObject.SetActive(false);
+        if (currentlyActiveObject == this)
+        {
+            currentlyActiveObject = null;
+        }
     }
 
     void TryPerformAction(string actionName, ItemsData neededItems, int neededItemsCount, float productionTime, ItemsData newItem)
@@ -65,12 +99,12 @@ public class ClickableObject : MonoBehaviour
         {
             return;
         }
-        
+
         Player.Instance.Inventory.ConsumeItem(neededItems, neededItemsCount);
         StartCoroutine(StartProduction(productionTime, newItem));
-        actionPanel.SetActive(false);
+        CloseActionPanel();
     }
-    
+
     private IEnumerator StartProduction(float productionTime, ItemsData newItem)
     {
         yield return new WaitForSeconds(productionTime);
