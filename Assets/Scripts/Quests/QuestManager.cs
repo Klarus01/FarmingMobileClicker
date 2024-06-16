@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    [SerializeField] private Player player;
-
     [SerializeField] private List<QuestData> allExistingQuests = new();
     [SerializeField] private List<AcceptedQuest> acceptedQuestObject = new();
     [SerializeField] private List<AvailableQuests> availableQuestsObject = new();
@@ -20,8 +18,8 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
-        player.OnLevelUp += UnlockPlant;
-        GenerateNewQuest();
+        Player.Instance.OnLevelUp += UnlockPlant;
+        //GenerateNewQuest();
     }
 
     private void Update()
@@ -30,7 +28,7 @@ public class QuestManager : MonoBehaviour
         timeSinceLastQuest += Time.deltaTime;
         if (timeSinceLastQuest >= questRefreshTime)
         {
-            GenerateNewQuest(); 
+            //GenerateNewQuest(); 
         }
     }
 
@@ -95,7 +93,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach(UnlockedItems unlockedItems in unlockedsItem)
         {
-            if(unlockedItems.level != player.Level)
+            if(unlockedItems.level != Player.Instance.Level)
             {
                 continue;
             }

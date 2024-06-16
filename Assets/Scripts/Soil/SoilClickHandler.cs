@@ -8,8 +8,6 @@ public class SoilClickHandler : MonoBehaviour
     [SerializeField] private BuildingManager building;
     [SerializeField] private GameObject seedsPanel;
 
-    [SerializeField] private Inventory inventory;
-
     [SerializeField] private Seed seedPref;
 
     private RectTransform seedsPanelRectTransform;
@@ -22,13 +20,13 @@ public class SoilClickHandler : MonoBehaviour
 
     private void Start()
     {
-        inventory.onUpdateInventory += UpdateSeed;
+        Player.Instance.Inventory.onUpdateInventory += UpdateSeed;
         seedsPanelRectTransform = seedsPanel.GetComponent<RectTransform>();
     }
 
     private void Update()
     {
-        transform.position = Input.mousePosition;
+        //TODO -- nie działa na telefonie transform.position = Input.mousePosition;
 
         if (building.isInBuildingMode) return;
 
@@ -42,7 +40,7 @@ public class SoilClickHandler : MonoBehaviour
     {
         int temp = 0;
 
-        foreach (ItemsData itemsData in inventory.CountByItem.Keys)
+        foreach (ItemsData itemsData in Player.Instance.Inventory.CountByItem.Keys)
         {
             if (itemsData is not SeedsData)
             {
