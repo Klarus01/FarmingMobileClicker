@@ -1,10 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class Soil : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer plantSprite;
+
+    [SerializeField] private TextMeshProUGUI timerText;
 
     private bool isPlantGrowUp;
     private float growTimeLeft;
@@ -24,7 +28,11 @@ public class Soil : MonoBehaviour
             return;
         }
 
+        timerText.transform.position = transform.position;
+
+        UpdateTimer();
         GrowingUpPlant();
+        ShowTimer();
     }
 
     public void PlantSeed(SeedsData seedData)
@@ -102,5 +110,55 @@ public class Soil : MonoBehaviour
         }
 
         plantSprite.sprite = seed.PlantStadiumSprites[numberOfSprite];
+    }
+
+    private void UpdateTimer()
+    {
+        float tmpTime = growTimeLeft;
+
+        int hour = (int)tmpTime / 3600;
+
+        tmpTime -= hour * 3600;
+
+        int min = (int)tmpTime / 60;
+
+        tmpTime -= min * 60;
+
+        int sec = (int)tmpTime;
+
+        timerText.text = hour + ":" + min + ":" + sec;
+    }
+
+    private void ShowTimer()
+    {
+        if(seed == null)
+        {
+            timerText.gameObject.SetActive(false);
+            return;
+        }
+
+        if(growTimeLeft <= 0)
+        {
+            timerText.gameObject.SetActive(false);
+            return;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            var hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                var soil = hit.collider.GetComponent<Soil>();
+
+                if (soil == this)
+                {
+                    timerText.gameObject.SetActive(true);
+                    return;
+                }
+            }
+
+            timerText.gameObject.SetActive(false);
+        }
     }
 }

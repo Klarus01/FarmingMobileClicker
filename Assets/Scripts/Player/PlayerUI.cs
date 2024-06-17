@@ -11,8 +11,6 @@ public class PlayerUI : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI expText;
-    
-    [SerializeField] private Player player;
 
     [SerializeField] private Canvas inventoryUI;
     [SerializeField] private GameObject bagUI;
@@ -21,15 +19,15 @@ public class PlayerUI : MonoBehaviour
 
     private void Awake()
     {
-        player.OnGrainExp += UpdateExp;
+        Player.Instance.OnGrainExp += UpdateExp;
         inventoryButton.onClick.AddListener(OpenInventory);
     }
 
     private void UpdateExp()
     {
-        levelText.text = player.Level.ToString();
-        expSlider.value = (float)player.Exp / (float)player.ExpToLevelUp;
-        expText.text = player.Exp.ToString() + " / " + player.ExpToLevelUp.ToString();
+        levelText.text = Player.Instance.Level.ToString();
+        expSlider.value = (float)Player.Instance.Exp / (float)Player.Instance.ExpToLevelUp;
+        expText.text = Player.Instance.Exp.ToString() + " / " + Player.Instance.ExpToLevelUp.ToString();
     }
 
     private void OpenInventory()
