@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildingPlacingHandler : MonoBehaviour
 {
     [SerializeField] private int buildingSize;
+    [SerializeField] private ClickableObject clickableObject;
     private Color baseColor;
     private new SpriteRenderer renderer;
     private List<Collider2D> colliders = new();
@@ -76,6 +78,10 @@ public class BuildingPlacingHandler : MonoBehaviour
         transform.position = newPos;
         baseColor.a = 1f;
         renderer.color = baseColor;
+        if (clickableObject)
+        {
+            clickableObject.enabled = true;
+        }
         Destroy(this);
     }
 }
