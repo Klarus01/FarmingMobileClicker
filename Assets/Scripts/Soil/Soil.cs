@@ -7,19 +7,25 @@ using TMPro;
 public class Soil : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer plantSprite;
-
     [SerializeField] private TextMeshProUGUI timerText;
+    private FarmerAI farmer;
 
     private bool isPlantGrowUp;
     private float growTimeLeft;
     private SeedsData seed;
 
-    public bool IsPlantGrowUp => isPlantGrowUp;
-    public SeedsData Seed => seed;
+    public bool IsPlantGrowUp { get => isPlantGrowUp; set => isPlantGrowUp = value; }
+    public SeedsData Seed { get => seed; set => isPlantGrowUp = seed; }
 
     public static Action onHarvestPlant;
 
     public bool IsSoilEmpty() => seed == null;
+
+    private void Start()
+    {
+        farmer = FindObjectOfType<FarmerAI>();
+        farmer.AddSoil(this);
+    }
 
     private void Update()
     {
@@ -43,6 +49,7 @@ public class Soil : MonoBehaviour
         }
 
         this.seed = seedData;
+        Player.Instance.Inventory.ConsumeItem(seedData);
         isPlantGrowUp = false;
         if (!UpgradeHandler.Instance.ValueByUpgradeType.ContainsKey(UpgradeType.GrowthSpeed)) growTimeLeft = seedData.TimeToCreate;
         else growTimeLeft = seedData.TimeToCreate * (1 - UpgradeHandler.Instance.ValueByUpgradeType[UpgradeType.GrowthSpeed]);
@@ -56,6 +63,7 @@ public class Soil : MonoBehaviour
         Player.Instance.Inventory.AddItemToInventory(seed.Plant, NumberOfPlantsToHarvest());
         onHarvestPlant?.Invoke();
         seed = null;
+        isPlantGrowUp = false;
         plantSprite.gameObject.SetActive(false);
     }
 

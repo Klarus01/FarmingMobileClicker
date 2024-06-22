@@ -8,7 +8,6 @@ public class Seed : MonoBehaviour
     [SerializeField] private Button button;
     
     private SeedsData seedData;
-    private Inventory inventory;
     private Soil soil;
     public bool isUnlocked;
     public SeedsData SeedData { get { return seedData; } set { seedData = value; } }
@@ -16,7 +15,6 @@ public class Seed : MonoBehaviour
     
     private void Start()
     {
-        inventory = FindObjectOfType<Inventory>();
         image.sprite = seedData.ItemSprite;
         button.onClick.AddListener(PlantSeedInSoil);
     }
@@ -29,7 +27,6 @@ public class Seed : MonoBehaviour
     private void PlantSeedInSoil()
     {
         soil.PlantSeed(seedData);
-        inventory.ConsumeItem(seedData);
         clickHandler.SeedsPanel.SetActive(false);
     }
 }

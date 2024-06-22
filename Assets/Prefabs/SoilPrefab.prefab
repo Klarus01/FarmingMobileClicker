@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSize: 1
+  clickableObject: {fileID: 0}
 --- !u!114 &3089976956393880526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c36248dba6ee71418b73842bb723eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  farmer: {fileID: 2596043654273310114, guid: b67862cb4eb48d5448d31acdbabc2ed1, type: 3}
   plantSprite: {fileID: 3908527266900353060}
   timerText: {fileID: 3000135739438463614}
 --- !u!61 &71661415069635916
