@@ -12,7 +12,7 @@ public class HarvestState : State
     public override void Execute()
     {
         farmer.HarvestCrops(targetSoil);
-        farmer.ChangeState(new CheckFieldsState(farmer));
+        farmer.ChangeState(new IdleState(farmer));
     }
 
     public override void Exit() { }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,6 +23,11 @@ public class FarmerAI : MonoBehaviour
         if (currentState != null)
         {
             currentState.Execute();
+        }
+
+        if (AtTargetPosition())
+        {
+            return;
         }
 
         MoveToTarget();
@@ -56,7 +60,7 @@ public class FarmerAI : MonoBehaviour
 
     public bool AtTargetPosition()
     {
-        return Vector2.Distance(transform.position, targetPosition) < minDistance;
+        return Vector2.Distance(transform.position, targetPosition) <= minDistance;
     }
 
     public void AddSoil(Soil soil)
@@ -97,31 +101,33 @@ public class FarmerAI : MonoBehaviour
         if (soil != null && soil.IsPlantGrowUp)
         {
             soil.HarvestPlant();
-            Debug.Log("harvested");
         }
     }
 
-    public bool CanPlantCrops()
+    public ItemsData CanPlantCrops()
     {
-        return soils.Any(soil => soil.IsSoilEmpty());
-    }
-
-    public void PlantCrops(Soil soil)
-    {
-        if (soil != null && soil.IsSoilEmpty())
+        var soil = soils.Any(soil => soil.IsSoilEmpty());
+        if (!soil)
         {
-            var keys = Player.Instance.Inventory.CountByItem.Keys.ToList();
+            return null;
+        }
+        
+        var keys = Player.Instance.Inventory.CountByItem.Keys.ToList();
 
-            for (int i = keys.Count - 1; i >= 0; i--)
+        for (int i = keys.Count - 1; i >= 0; i--)
+        {
+            var item = keys[i];
+            if (item is SeedsData)
             {
-                var item = keys[i];
-                if (item is SeedsData)
-                {
-                    soil.PlantSeed(item as SeedsData);
-                    Debug.Log("planted");
-                    break;
-                }
+                return item;
             }
         }
+
+        return null;
+    }
+
+    public void PlantCrops(Soil soil, SeedsData seed)
+    {
+        soil.PlantSeed(seed);
     }
 }

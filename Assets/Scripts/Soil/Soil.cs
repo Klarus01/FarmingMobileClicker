@@ -8,7 +8,6 @@ public class Soil : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer plantSprite;
     [SerializeField] private TextMeshProUGUI timerText;
-    private FarmerAI farmer;
 
     private bool isPlantGrowUp;
     private float growTimeLeft;
@@ -20,12 +19,6 @@ public class Soil : MonoBehaviour
     public static Action onHarvestPlant;
 
     public bool IsSoilEmpty() => seed == null;
-
-    private void Start()
-    {
-        farmer = FindObjectOfType<FarmerAI>();
-        farmer.AddSoil(this);
-    }
 
     private void Update()
     {

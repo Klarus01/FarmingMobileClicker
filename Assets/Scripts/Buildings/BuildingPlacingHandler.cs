@@ -10,6 +10,7 @@ public class BuildingPlacingHandler : MonoBehaviour
     private Color baseColor;
     private new SpriteRenderer renderer;
     private List<Collider2D> colliders = new();
+    private FarmerAI farmer;
 
     private void Start()
     {
@@ -82,6 +83,13 @@ public class BuildingPlacingHandler : MonoBehaviour
         {
             clickableObject.enabled = true;
         }
+        
+        farmer = FindObjectOfType<FarmerAI>();
+        if (farmer)
+        {
+            farmer.AddSoil(gameObject.GetComponent<Soil>());
+        }
+        
         Destroy(this);
     }
 }

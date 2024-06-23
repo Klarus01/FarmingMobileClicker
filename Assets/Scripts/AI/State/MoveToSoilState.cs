@@ -7,7 +7,7 @@ public class MoveToSoilState : State
 
     public MoveToSoilState(FarmerAI farmer, Soil soil, State nextState) : base(farmer)
     {
-        this.targetSoil = soil;
+        targetSoil = soil;
         this.nextState = nextState;
     }
 
