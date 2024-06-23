@@ -213,6 +213,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &26755054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7228525487433631900, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
+  m_PrefabInstance: {fileID: 545765872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &62219580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,7 +1189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1383591553}
   ShopPanel: {fileID: 545765873}
-  panelWithSlots: {fileID: 545765877}
+  panelWithSlots: {fileID: 26755054}
   emptyText: {fileID: 545765875}
 --- !u!114 &234704968
 MonoBehaviour:
@@ -20718,11 +20723,6 @@ MonoBehaviour:
 --- !u!223 &545765876 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8012782391076822072, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-  m_PrefabInstance: {fileID: 545765872}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &545765877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4377841565784216570, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
   m_PrefabInstance: {fileID: 545765872}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &582103094

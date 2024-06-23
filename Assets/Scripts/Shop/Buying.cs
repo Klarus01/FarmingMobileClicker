@@ -13,10 +13,13 @@ public class Buying : MonoBehaviour
     [SerializeField] private Canvas ShopBagCanvas;
 
     [SerializeField] private Button button;
+    [SerializeField] private ItemCountManager itemCountManager;
 
     private TextMeshProUGUI priceText;
     private void Awake()
     {
+        itemCountManager.onChangeCount += UpdateShop;
+
         button.onClick.AddListener(Buy);
         priceText = button.GetComponentInChildren<TextMeshProUGUI>();
         priceText.text = "Level" + levelRequired.ToString();
@@ -26,6 +29,16 @@ public class Buying : MonoBehaviour
     private void Start()
     {
         UnlockSlot();
+    }
+
+    private void UpdateShop()
+    {
+        if (Player.Instance.Level != levelRequired)
+        {
+            return;
+        }
+
+        priceText.text = itemSo.ItemValue * itemCountManager.sellCount + " $";
     }
 
     private void UnlockSlot()
@@ -46,7 +59,7 @@ public class Buying : MonoBehaviour
             return;
         }
 
-        if(Player.Instance.Money < itemSo.ItemValue)
+        if(Player.Instance.Money * itemCountManager.sellCount < itemSo.ItemValue)
         {
             return;
         }
@@ -58,9 +71,9 @@ public class Buying : MonoBehaviour
             return;
         }
 
-        if (Player.Instance.UpdateMoney(itemSo.ItemValue * -1))
+        if (Player.Instance.UpdateMoney(itemSo.ItemValue * -1 * itemCountManager.sellCount))
         {
-            Player.Instance.Inventory.AddItemToInventory(itemSo);
+            Player.Instance.Inventory.AddItemToInventory(itemSo, itemCountManager.sellCount);
         }
     }
 }

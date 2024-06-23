@@ -16,7 +16,6 @@ public class ShopBagButtons : MonoBehaviour
         
         button.onClick.AddListener(UiToClose);
         button.onClick.AddListener(UiToOpen);
-
     }
 
     private void UiToClose()

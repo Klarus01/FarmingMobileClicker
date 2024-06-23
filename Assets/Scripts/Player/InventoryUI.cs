@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private Inventory inventory;
 
     [SerializeField] private GameObject ShopPanel;
+    [SerializeField] private GameObject InventoryPanel;
 
     [SerializeField] private GameObject panelWithSlots;
     [SerializeField] private TextMeshProUGUI emptyText;
+
+    [SerializeField] private ItemCountManager itemCountManager;
+
     private Slot[] slots;
+
+    private float sellCooldown = 1;
 
     private void Awake()
     {
+        itemCountManager.onChangeCount += UpdateInventory;
         slots = panelWithSlots.GetComponentsInChildren<Slot>();
         inventory.onUpdateInventory += UpdateInventory;
     }
@@ -25,10 +33,20 @@ public class InventoryUI : MonoBehaviour
         ShopPanel.SetActive(false);
     }
 
+    private void OnDisable()
+    {
+        InventoryPanel.SetActive(false);
+    }
+
     private void Start()
     {
         UpdateInventory();
-    }   
+    }
+
+    private void Update()
+    {
+        sellCooldown -= Time.deltaTime;
+    }
 
     private void UpdateInventory()
     {
@@ -39,6 +57,9 @@ public class InventoryUI : MonoBehaviour
             slots[i].gameObject.SetActive(true);
             slots[i].Icon.sprite = itemData.ItemSprite;
             slots[i].Count.text = inventory.CountByItem[itemData].ToString();
+            slots[i].SellButton.onClick.RemoveAllListeners();
+            slots[i].SellButton.onClick.AddListener(delegate { SellItem(itemData, itemCountManager.sellCount); });
+            slots[i].PriceText.text = ((itemData.ItemValue / 2) * itemCountManager.sellCount + " $");
             i++;
         }
 
@@ -59,5 +80,28 @@ public class InventoryUI : MonoBehaviour
             emptyText.gameObject.SetActive(false);
         }
 
+    }
+
+    private void SellItem(ItemsData itemsData, int count)
+    {
+        if(sellCooldown > 0)
+        {
+            return;
+        }
+
+        if(count > inventory.CountByItem[itemsData])
+        {
+            Player.Instance.UpdateMoney((itemsData.ItemValue / 2) * inventory.CountByItem[itemsData]);
+            inventory.ConsumeItem(itemsData, inventory.CountByItem[itemsData]);
+        }
+        else
+        {
+            Player.Instance.UpdateMoney((itemsData.ItemValue / 2) * count);
+            inventory.ConsumeItem(itemsData, count);
+        }
+
+        sellCooldown = 1;
+        
+        UpdateInventory();
     }
 }
