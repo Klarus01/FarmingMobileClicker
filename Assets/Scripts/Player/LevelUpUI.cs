@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class LevelUpUI : MonoBehaviour
 {
@@ -14,7 +15,13 @@ public class LevelUpUI : MonoBehaviour
 
     [SerializeField] private Button closeButton;
 
+    [SerializeField] private Image upgradeImage;
+
+    [SerializeField] private TextMeshProUGUI upgradeText;
+
     [SerializeField] private UnlockedItems[] unlockedItems;
+
+    [SerializeField] private List<UpgradeData> upgradeDatas;
 
     private void Awake()
     {
@@ -24,6 +31,14 @@ public class LevelUpUI : MonoBehaviour
 
     private void LevelUP()
     {
+        int randomIndex = Random.Range(0, upgradeDatas.Count);
+
+        upgradeDatas[randomIndex].ApplyUpgrade();
+
+        upgradeImage.color = upgradeDatas[randomIndex].color;
+
+        upgradeText.text = upgradeDatas[randomIndex].type + " +" + upgradeDatas[randomIndex].value.ToString();
+
         levelUpPanel.SetActive(true);
 
         foreach (UnlockedItems unlockedItem in unlockedItems)
@@ -32,7 +47,6 @@ public class LevelUpUI : MonoBehaviour
             {
                 continue;
             }
-            Debug.Log("XD");
             levelText.text = Player.Instance.Level.ToString();
             unlockedImage.sprite = unlockedItem.unlockedList[0].items.ItemSprite;
         }
