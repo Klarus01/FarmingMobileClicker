@@ -7,9 +7,16 @@ public class Inventory : MonoBehaviour
 {
     public Action onUpdateInventory;
 
+    public PlantsData corn;
+
     private Dictionary<ItemsData, int> countByItem = new();
 
     public Dictionary<ItemsData, int> CountByItem => countByItem;
+
+    private void Awake()
+    {
+        countByItem.Add(corn, 20);
+    }
 
     public void AddItemToInventory(ItemsData itemData, int count = 1)
     {

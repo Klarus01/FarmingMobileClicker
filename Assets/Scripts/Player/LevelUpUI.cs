@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelUpUI : MonoBehaviour
 {
-    [SerializeField] private Player player;
-    
     [SerializeField] private GameObject levelUpPanel;
+
+    [SerializeField] private TextMeshProUGUI levelText;
 
     [SerializeField] private Image unlockedImage;
 
@@ -17,26 +18,28 @@ public class LevelUpUI : MonoBehaviour
 
     private void Awake()
     {
-        player.OnLevelUp += LevelUP;
+        Player.Instance.OnLevelUp += LevelUP;
         closeButton.onClick.AddListener(ClosePanel);
     }
 
     private void LevelUP()
     {
         levelUpPanel.SetActive(true);
+
+        foreach (UnlockedItems unlockedItem in unlockedItems)
+        {
+            if (unlockedItem.level != Player.Instance.Level)
+            {
+                continue;
+            }
+            Debug.Log("XD");
+            levelText.text = Player.Instance.Level.ToString();
+            unlockedImage.sprite = unlockedItem.unlockedList[0].items.ItemSprite;
+        }
     }
 
     private void ClosePanel()
     { 
         levelUpPanel.SetActive(false);
-        foreach(UnlockedItems unlockedItem in unlockedItems)
-        {
-            if(unlockedItem.level != player.Level)
-            {
-                continue;
-            }
-
-            unlockedImage.sprite = unlockedItem.unlockedList[0].items.ItemSprite;
-        }
     }
 }
