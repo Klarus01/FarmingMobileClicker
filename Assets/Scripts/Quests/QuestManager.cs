@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    [SerializeField] private List<UnlockedItems> unlockedsItem;
+
     [SerializeField] private List<QuestData> allExistingQuests = new();
     [SerializeField] private List<AcceptedQuest> acceptedQuestObject = new();
     [SerializeField] private List<AvailableQuests> availableQuestsObject = new();
@@ -11,31 +14,42 @@ public class QuestManager : MonoBehaviour
     private float questRefreshTime = 5f;
     private float timeSinceLastQuest;
 
-    private List<UnlockedItems> unlockedsItem = new();
+    private List<QuestData> possibleQuest = new();
+
     private Dictionary<PlantsData, bool> isUnlockedByPlantsData = new Dictionary<PlantsData, bool>();
 
     public List<QuestData> AcceptedQuest => acceptedQuests;
 
-    private void Start()
+    private void Awake()
     {
         Player.Instance.OnLevelUp += UnlockPlant;
-        //GenerateNewQuest();
+    }
+
+    private void Start()
+    {
+        UnlockPlant();
     }
 
     private void Update()
     {
+        if(possibleQuest.Count == 0)
+        {
+            return;
+        }
+
         if (availableQuests.Count.Equals(3)) return;
         timeSinceLastQuest += Time.deltaTime;
         if (timeSinceLastQuest >= questRefreshTime)
         {
-            //GenerateNewQuest(); 
+            GenerateNewQuest(); 
         }
     }
 
     private void GenerateNewQuest()
     {
-        int randomIndex = Random.Range(0, allExistingQuests.Count);
-        QuestData newQuest = allExistingQuests[randomIndex];
+        int randomIndex = Random.Range(0, possibleQuest.Count);
+        Debug.Log(randomIndex);
+        QuestData newQuest = possibleQuest[randomIndex];
         availableQuests.Add(newQuest);
 
         List<PlantsData> plants = new List<PlantsData>();
@@ -45,9 +59,14 @@ public class QuestManager : MonoBehaviour
             plants.Add(newQuest.RequestList[i].plants);
         }
 
+        if(plants.Count == 0)
+        {
+            return;
+        }
+
         foreach(PlantsData plantsData in plants)
         {
-            if (isUnlockedByPlantsData[plantsData])
+            if (isUnlockedByPlantsData.ContainsKey(plantsData))
             {
                 continue;
             }
@@ -102,19 +121,42 @@ public class QuestManager : MonoBehaviour
 
             for (int i = 0; i < unlockedItems.unlockedList.Count; i++)
             {
-                if (unlockedItems.unlockedList[i].Items is not SeedsData)
+                if (unlockedItems.unlockedList[i].Items is not PlantsData)
                 {
                     continue;
                 }
 
-                SeedsData seedsData = unlockedItems.unlockedList[i].Items as SeedsData;
+                PlantsData seedsData = unlockedItems.unlockedList[i].Items as PlantsData;
 
-                plantsDataList.Add(seedsData.Plant);
+                plantsDataList.Add(seedsData);
             }
 
             foreach (PlantsData plantsData in plantsDataList)
             {
-                isUnlockedByPlantsData[plantsData] = true;
+                isUnlockedByPlantsData.Add(plantsData, true);
+                Debug.Log(plantsData.name);
+            }
+        }
+
+        UnlockQuest();
+    }
+    private void UnlockQuest()
+    {
+        foreach(QuestData questData in allExistingQuests)
+        {
+            for(int i = 0; i < questData.RequestList.Count; i++)
+            {
+                if (!isUnlockedByPlantsData.ContainsKey(questData.RequestList[i].plants))
+                {
+                    break;
+                }
+
+                if(possibleQuest.Contains(questData))
+                {
+                    return;
+                }
+
+                possibleQuest.Add(questData);
             }
         }
     }

@@ -1174,7 +1174,8 @@ MonoBehaviour:
   levelUpPanel: {fileID: 1929408824}
   unlockedImage: {fileID: 930288773}
   closeButton: {fileID: 80326477}
-  unlockedItems: []
+  unlockedItems:
+  - {fileID: 11400000, guid: 1ccc8b7dd52920e4fa8b1f7e2c47470b, type: 2}
 --- !u!114 &234704967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,10 +1190,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1383591553}
   ShopPanel: {fileID: 545765873}
-  InventoryPanel: {fileID: 0}
+  InventoryPanel: {fileID: 559407299}
   panelWithSlots: {fileID: 26755054}
   emptyText: {fileID: 545765875}
-  itemCountManager: {fileID: 0}
+  itemCountManager: {fileID: 1248691758}
 --- !u!114 &234704968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,12 +1252,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1929408825}
   - {fileID: 1962469700}
   - {fileID: 411918012}
   - {fileID: 850513438}
   - {fileID: 800158625}
   - {fileID: 1126330426}
-  - {fileID: 1929408825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -20692,77 +20693,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3007195716630893703, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3007195716630893703, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3007195716630893703, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3007195716630893703, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4229518643987636115, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4229518643987636115, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4229518643987636115, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4229518643987636115, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4897901584186919371, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4897901584186919371, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4897901584186919371, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4897901584186919371, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6260331823527695244, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
       propertyPath: m_Name
       value: ShopBagCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6260331823527695244, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037308823660757734, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037308823660757734, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037308823660757734, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037308823660757734, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20784,7 +20717,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8867974794082629155, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
   m_PrefabInstance: {fileID: 545765872}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 559407299}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -20793,6 +20726,11 @@ MonoBehaviour:
 --- !u!223 &545765876 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8012782391076822072, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
+  m_PrefabInstance: {fileID: 545765872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559407299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3947084306705889311, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
   m_PrefabInstance: {fileID: 545765872}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &582103094
@@ -23633,6 +23571,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126330425}
   m_CullTransparentMesh: 1
+--- !u!114 &1248691758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2766896802736026925, guid: 1b93391016a381944ae2fafa4d01978a, type: 3}
+  m_PrefabInstance: {fileID: 545765872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ce07e665a30fc49884b1ff60048f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1272069699
 GameObject:
   m_ObjectHideFlags: 0
@@ -25372,6 +25321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f19f24f806964788dacb951bbd2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockedsItem:
+  - {fileID: 11400000, guid: 1ccc8b7dd52920e4fa8b1f7e2c47470b, type: 2}
   allExistingQuests:
   - {fileID: 11400000, guid: d6c3f3e155102dc45b0bb92b3aa66c8b, type: 2}
   - {fileID: 11400000, guid: 125f085444699304e873886755cfd1e8, type: 2}
@@ -25380,6 +25331,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c358d2338e61ee54ab9f598032fd773e, type: 2}
   - {fileID: 11400000, guid: afd518f3644531448b8c612442fe1aa0, type: 2}
   - {fileID: 11400000, guid: f73a3f81db8a6684bb635045f1f2f778, type: 2}
+  - {fileID: 11400000, guid: 2507e73d2facda847831849290d46b19, type: 2}
   acceptedQuestObject:
   - {fileID: 621923485}
   - {fileID: 1873253383}
