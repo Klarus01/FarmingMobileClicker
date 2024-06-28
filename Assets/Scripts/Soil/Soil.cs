@@ -27,8 +27,8 @@ public class Soil : MonoBehaviour
             return;
         }
 
-        timerText.transform.position = transform.position;
-
+        //timerText.transform.position = transform.position;
+        timerText.transform.position = Camera.main.WorldToScreenPoint(transform.position);
         UpdateTimer();
         GrowingUpPlant();
         ShowTimer();

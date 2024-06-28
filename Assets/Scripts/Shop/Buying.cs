@@ -33,7 +33,7 @@ public class Buying : MonoBehaviour
 
     private void UpdateShop()
     {
-        if (Player.Instance.Level != levelRequired)
+        if (Player.Instance.Level < levelRequired)
         {
             return;
         }
@@ -44,7 +44,7 @@ public class Buying : MonoBehaviour
     private void UnlockSlot()
     {
         itemImage.sprite = itemSo.ItemSprite;
-        if(Player.Instance.Level != levelRequired)
+        if(Player.Instance.Level < levelRequired)
         {
             return;
         }
