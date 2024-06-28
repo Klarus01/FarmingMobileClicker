@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Selling : MonoBehaviour
 {
     [SerializeField] private PlantsData plantSo;

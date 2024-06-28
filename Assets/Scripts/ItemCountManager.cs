@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 using TMPro;
 
@@ -12,6 +11,20 @@ public class ItemCountManager : MonoBehaviour
 
     public int sellCount = 1;
 
+    public bool isMaxCount
+    {
+        get
+        {
+            if(sellCount == 99999)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
     private void Awake()
     {
         countList.onValueChanged.AddListener(delegate { ChangedValue(countList.value); });
