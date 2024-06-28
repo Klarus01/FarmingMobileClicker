@@ -15,6 +15,8 @@ public class Buying : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private ItemCountManager itemCountManager;
 
+    private int itemCount;
+
     private TextMeshProUGUI priceText;
     private void Awake()
     {
@@ -31,6 +33,11 @@ public class Buying : MonoBehaviour
         UnlockSlot();
     }
 
+    private void OnEnable()
+    {
+        UpdateShop();
+    }
+
     private void UpdateShop()
     {
         if (Player.Instance.Level < levelRequired)
@@ -38,7 +45,16 @@ public class Buying : MonoBehaviour
             return;
         }
 
-        priceText.text = itemSo.ItemValue * itemCountManager.sellCount + " $";
+        if(itemCountManager.isMaxCount)
+        {
+            itemCount = Player.Instance.Money / itemSo.ItemValue;
+        }
+        else
+        {
+            itemCount = itemCountManager.sellCount;
+        }
+
+        priceText.text = itemSo.ItemValue * itemCount + " $";
     }
 
     private void UnlockSlot()
@@ -59,21 +75,15 @@ public class Buying : MonoBehaviour
             return;
         }
 
-        if(Player.Instance.Money * itemCountManager.sellCount < itemSo.ItemValue)
+        if(Player.Instance.Money * itemCount < itemSo.ItemValue)
         {
             return;
         }
 
-        if(itemSo is SoilData)
+        if (Player.Instance.UpdateMoney(itemSo.ItemValue * -1 * itemCount))
         {
-            //Buy soil
-            ShopBagCanvas.gameObject.SetActive(false);
-            return;
-        }
-
-        if (Player.Instance.UpdateMoney(itemSo.ItemValue * -1 * itemCountManager.sellCount))
-        {
-            Player.Instance.Inventory.AddItemToInventory(itemSo, itemCountManager.sellCount);
+            Player.Instance.Inventory.AddItemToInventory(itemSo, itemCount);
+            UpdateShop();
         }
     }
 }

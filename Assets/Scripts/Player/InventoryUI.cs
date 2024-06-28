@@ -30,6 +30,7 @@ public class InventoryUI : MonoBehaviour
 
     private void OnEnable()
     {
+        UpdateInventory();
         ShopPanel.SetActive(false);
     }
 
@@ -58,8 +59,17 @@ public class InventoryUI : MonoBehaviour
             slots[i].Icon.sprite = itemData.ItemSprite;
             slots[i].Count.text = inventory.CountByItem[itemData].ToString();
             slots[i].SellButton.onClick.RemoveAllListeners();
-            slots[i].SellButton.onClick.AddListener(delegate { SellItem(itemData, itemCountManager.sellCount); });
-            slots[i].PriceText.text = ((itemData.ItemValue / 2) * itemCountManager.sellCount + " $");
+            if(itemCountManager.isMaxCount)
+            {
+                slots[i].SellButton.onClick.AddListener(delegate { SellItem(itemData, inventory.CountByItem[itemData]); });
+                slots[i].PriceText.text = ((itemData.ItemValue / 2) * inventory.CountByItem[itemData] + " $");
+            }
+            else
+            {
+                slots[i].SellButton.onClick.AddListener(delegate { SellItem(itemData, itemCountManager.sellCount); });
+                slots[i].PriceText.text = ((itemData.ItemValue / 2) * itemCountManager.sellCount + " $");
+            }
+
             i++;
         }
 
