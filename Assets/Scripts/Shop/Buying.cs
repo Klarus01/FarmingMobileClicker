@@ -47,7 +47,14 @@ public class Buying : MonoBehaviour
 
         if(itemCountManager.isMaxCount)
         {
-            itemCount = Player.Instance.Money / itemSo.ItemValue;
+            if (itemSo.ItemValue.Equals(0))
+            {
+                itemCount = Player.Instance.Money;
+            }
+            else
+            {
+                itemCount = Player.Instance.Money / itemSo.ItemValue;
+            }
         }
         else
         {

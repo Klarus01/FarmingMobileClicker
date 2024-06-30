@@ -87,7 +87,10 @@ public class BuildingPlacingHandler : MonoBehaviour
         farmer = FindObjectOfType<FarmerAI>();
         if (farmer)
         {
-            farmer.AddSoil(gameObject.GetComponent<Soil>());
+            if (gameObject.GetComponent<Soil>())
+            {
+                farmer.AddSoil(gameObject.GetComponent<Soil>());
+            }
         }
         
         Destroy(this);

@@ -49,7 +49,7 @@ public class Player : SingletoneMonobehaviour<Player>
 
     public bool UpdateMoney(int moneyToAdd)
     {
-        if (money + moneyToAdd > 0)
+        if (money + moneyToAdd >= 0)
         {
             money += moneyToAdd;
             return true;
